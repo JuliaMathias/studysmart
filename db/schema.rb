@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_191852) do
+ActiveRecord::Schema.define(version: 2020_11_14_200103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.integer "type"
+    t.bigint "session_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_id"], name: "index_attachments_on_session_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.text "content"
+    t.string "video_call"
+    t.boolean "privacy"
+    t.bigint "study_group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["study_group_id"], name: "index_sessions_on_study_group_id"
+  end
+
+  create_table "study_groups", force: :cascade do |t|
+    t.integer "creator_id"
+    t.string "name"
+    t.boolean "create_sessions"
+    t.boolean "edit_session"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_study_groups", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "study_group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["study_group_id"], name: "index_user_study_groups_on_study_group_id"
+    t.index ["user_id"], name: "index_user_study_groups_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +63,13 @@ ActiveRecord::Schema.define(version: 2020_11_14_191852) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attachments", "sessions"
+  add_foreign_key "sessions", "study_groups"
+  add_foreign_key "user_study_groups", "study_groups"
+  add_foreign_key "user_study_groups", "users"
 end
