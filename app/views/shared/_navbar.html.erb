@@ -1,35 +1,23 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<div class="header header-fixed unselectable header-animated">
+         <div class="header-brand">
+            <div class="nav-item no-hover">
+               <h6 class="title">My App</h6>
+            </div>
+            <div class="nav-item nav-btn" id="header-btn"> <span></span> <span></span> <span></span> </div>
+         </div>
+         <div class="header-nav" id="header-menu">
+            <div class="nav-left">
+               <div class="nav-item text-center"> <a href="#"> <span class="icon"> <i class="fab fa-wrapper fa-twitter" aria-hidden="true"></i> </span> </a> </div>
+            </div>
+            <div class="nav-right">
+               <div class="nav-item has-sub toggle-hover" id="dropdown">
+                  <a class="nav-dropdown-link">Menu</a>
+                  <ul class="dropdown-menu dropdown-animated" role="menu">
+                     <li role="menu-item"><a href="#">First Item</a></li>
+                     <li role="menu-item"><a href="#">Second Item</a></li>
+                     <li role="menu-item"><a href="#">Third Item</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
