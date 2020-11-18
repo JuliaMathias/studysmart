@@ -41,7 +41,7 @@
                         <a class="nav-dropdown-link">Study Group</a>
                         <ul class="dropdown-menu dropdown-animated" role="menu">
                             <li role="menu-item"><a href="#">Your Study Groups</a></li>
-                            <li role="menu-item"><a href="#">New Study Group</a></li>
+                            <li> <%= link_to "New Study Group", new_study_group_path(@study_group)%></li>
                             <li role="menu-item"><a href="#">Other Study Groups</a></li>
                         </ul>
                     </div>
@@ -111,17 +111,17 @@
 
             gtag('config', 'UA-40470494-2');
         </script>
+        <div class="footer">
+        <div class="footer-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="footer-copyright">
+            This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+        </div>
+        </div>
+        </section>
     </body>
 </html>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
-  </div>
-</div>
-</section>
