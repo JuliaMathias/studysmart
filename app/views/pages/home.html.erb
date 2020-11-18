@@ -1,12 +1,127 @@
- <section class="section">
-   <div class="hero fullscreen">
-    <div class="hero-body">
-     <div class="content">
-      <div class="text-center">
-       <h1>👋 Hello world!</h1>
-       <h6 class="font-alt font-light">A webpage powered by <b>Cirrus.</b></h6>
-     </div>
-   </div>
- </div>
+
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <link href="../../../res/cirrus.min.css" type="text/css" rel="stylesheet" />
+        <link href="../../../res/app.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+            crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    </header>
+
+    <style>
+        @media screen and (max-width: 768px) {
+            .divider {
+                display: none;
+            }
+        }
+    </style>
+    <body>
+        <div class="header header-fixed unselectable header-animated">
+            <div class="header-brand">
+                <div class="nav-item no-hover">
+                    <a><h6 class="title">StudySmart</h6></a>
+                </div>
+                <div class="nav-item nav-btn" id="header-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="header-nav" id="header-menu">
+                <div class="nav-left">
+                    <div class="nav-item">
+                        <a href="#">Profile</a>
+                    </div>
+                    <div class="nav-item has-sub toggle-hover" id="dropdown">
+                        <a class="nav-dropdown-link">Study Group</a>
+                        <ul class="dropdown-menu dropdown-animated" role="menu">
+                            <li role="menu-item"><a href="#">Your Study Groups</a></li>
+                            <li role="menu-item"><a href="#">New Study Group</a></li>
+                            <li role="menu-item"><a href="#">Other Study Groups</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="#">Support & Resources</a>
+                    </div>
+                    <div class="nav-item has-sub toggle-hover" id="dropdown">
+                        <a class="nav-dropdown-link">More</a>
+                        <ul class="dropdown-menu dropdown-animated" role="menu">
+                            <li role="menu-item"><a href="#">Our Story</a></li>
+                            <li role="menu-item"><a href="#">Our Mission</a></li>
+                            <li role="menu-item"><a href="#">The Team</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nav-right">
+                    <div class="form-group">
+                        <input type="search" class="form-group-input" placeholder="Search">
+                        <button class="form-group-btn">Go</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero fullscreen">
+            <div class="hero-body u-center">
+                <div class="w-90" style="position: relative">
+                    <div class="row">
+                        <div class="col-6" style="padding: 2rem;">
+                            <h1>This is a wonderful startup working on something cool.</h1>
+                            <p class="lead">Be a part of this revolutionary new feature that would change your studies forever. Seriously. Sign up right now below.</p>
+
+                            <div class="r">
+                                <b>Now in <div class="tag tag--link">Version One</div></b>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" placeholder="Enter your email address." />
+                                <button class="form-group-btn btn-link">
+                                    Sign Up
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="col-6" style="padding: 2rem;">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script async src="../../../res/js/test.js"></script>
+
+        <script src="https://use.fontawesome.com/a696b91557.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40470494-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-40470494-2');
+        </script>
+    </body>
+</html>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
 </div>
 </section>
