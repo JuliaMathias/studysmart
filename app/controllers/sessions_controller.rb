@@ -1,13 +1,14 @@
 class SessionsController < ApplicationController
+before_action :set_session, only: [:show]
  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # def index
   #   @study_groups = policy_scope(StudyGroup).order(created_at: :desc)
   # end
 
-  # def show
-  #   authorize(@study_group)
-  # end
+  def show
+     authorize(@session)
+   end
 
   def new
     @study_group = StudyGroup.find(params[:study_group_id])
@@ -29,10 +30,10 @@ class SessionsController < ApplicationController
 
   private
 
-  # def set_study_group
-  #   @study_group = StudyGroup.find(params[:id])
-  #   authorize(@study_group)
-  # end
+  def set_session
+    @session = Session.find(params[:id])
+    authorize(@session)
+  end
 
   def session_params
     params.require(:session).permit(:date, :name, :content, :video_call, :privacy)
