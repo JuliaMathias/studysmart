@@ -12,7 +12,7 @@ class StudyGroupsController < ApplicationController
 
   def new
     @study_group = StudyGroup.new
-    # authorize(@study_group)
+    authorize(@study_group)
   end
 
   def create

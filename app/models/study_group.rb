@@ -5,5 +5,5 @@ class StudyGroup < ApplicationRecord
   validates :creator_id, presence: true
   validates :name, presence: true
   validates :create_sessions, presence: true
-  validates :edit_sessions, presence: true
+  validates :edit_session, presence: true
 end
