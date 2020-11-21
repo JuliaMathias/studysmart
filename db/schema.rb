@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_11_21_173540) do
   create_table "attachments", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.integer "type"
+    t.integer "attachment_type"
     t.bigint "session_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
