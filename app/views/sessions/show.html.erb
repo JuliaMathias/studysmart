@@ -1,17 +1,20 @@
- <div class="row u-center">
-  <div class="col-6 m-10">
+<!-- container -->
+<div class="row u-center">
+  <div class="col-8 mt-10">
+    <!-- modal -->
     <div class="modal" id="attachment-modal">
       <a href="#searchModalDialog" class="modal-overlay close-btn" aria-label="Close"></a>
       <div class="modal-content" role="document">
-
         <div class="modal-header">
           <a href="#components" class="u-pull-right" aria-label="Close">
-            <span class="icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11 fa-wrapper" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></span>
+            <span class="icon">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11 fa-wrapper" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
+                <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+              </svg>
+            </span>
           </a>
           <div class="modal-title">Add attachments</div>
         </div>
-
-
         <%= simple_form_for([@session, @attachment]) do |f| %>
         <div class="modal-body">
           <%= f.input :attachment_type, collection: Attachment.attachment_types.keys %>
@@ -25,16 +28,42 @@
       </div>
     </div>
 
-    <h1 class="headline-3"><%= @session.name %></h1>
+    <!-- title and modal button -->
+    <section class="pt-6">
+      <div class="content">
+        <div class="u-text-right">
+          <a class="btn outline btn-link mb-2" href="#attachment-modal">Add attachments</a>
+        </div>
+        <h1 class="headline-3"><%= @session.name %></h1>
+      </div>
+    </section>
+
+    <!-- videos -->
+    <section class="pt-3">
+      <div class="content">
+        <% @videos.each do |video| %>
+        <div class="my-3">
+          <iframe width=100% height="315" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <samp><%= video.name %></samp>
+        </div>
+        <% end %>
+      </div>
+    </section>
+
+    <!-- content -->
+    <section class="pt-6">
+      <div class="content">
+        <p><%= @session.content %></p>
+      </div>
+    </section>
+
+    <!-- reading list -->
+    <section class="pt-6">
+      <div class="content">
+        <p><%= @session.content %></p>
+      </div>
+    </section>
     <div>
-       <% @videos.each do |video| %>
-        <iframe width="560" height="315" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p><%= video.name %></p>
-       <% end %>
     </div>
-    <p><%= @session.content %></p>
-
-
-    <a class="btn btn-link" href="#attachment-modal">Add attachments</a>
   </div>
 </div>
