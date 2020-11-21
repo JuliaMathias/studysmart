@@ -8,6 +8,9 @@ before_action :set_session, only: [:show]
 
   def show
      authorize(@session)
+     @session = Session.find(params[:id])
+     @attachment = Attachment.new
+     authorize(@attachment)
    end
 
   def new
@@ -18,6 +21,7 @@ before_action :set_session, only: [:show]
 
   def create
     @session = Session.new(session_params)
+    # attach
     authorize(@session)
     @session.study_group = StudyGroup.find(params[:study_group_id])
     if @session.save
@@ -28,12 +32,16 @@ before_action :set_session, only: [:show]
   end
 
 
+
+
   private
 
   def set_session
     @session = Session.find(params[:id])
     authorize(@session)
   end
+
+  # 1. checar se o usúario incluiu attachments ou não
 
   def session_params
     params.require(:session).permit(:date, :name, :content, :video_call, :privacy)

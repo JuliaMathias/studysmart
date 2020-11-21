@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :study_groups do
     resources :sessions, only: [:new, :create]
   end
-  resources :sessions, only: [:show]
+  resources :sessions, only: [:show] do
+    resources :attachments, only: [:create]
+  end
 end
