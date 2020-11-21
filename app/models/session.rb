@@ -6,5 +6,5 @@ class Session < ApplicationRecord
   validates :date, presence: true
   validates :name, presence: true
   validates :content, presence: true
-  validates :privacy, presence: true
+  validates :privacy,  inclusion: { in: [true, false] }
 end
