@@ -5,12 +5,20 @@ class SessionPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    create?
+  end
+
   def create?
     return true
   end
 
   def show?
     return true
+  end
+
+  def edit?
+    update?
   end
 
   def update?
