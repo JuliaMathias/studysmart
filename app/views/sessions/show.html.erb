@@ -28,11 +28,11 @@
     <h1 class="headline-3"><%= @session.name %></h1>
     <div>
        <% @videos.each do |video| %>
-        <iframe width="560" height="315" src="<%= attachment. %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p><%= video.name %></p>
        <% end %>
     </div>
     <p><%= @session.content %></p>
-
 
 
     <a class="btn btn-link" href="#attachment-modal">Add attachments</a>
