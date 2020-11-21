@@ -4,6 +4,6 @@ class StudyGroup < ApplicationRecord
 
   validates :creator_id, presence: true
   validates :name, presence: true
-  validates :create_sessions, presence: true
-  validates :edit_session, presence: true
+  validates :create_sessions,  inclusion: { in: [true, false] }
+  validates :edit_session,  inclusion: { in: [true, false] }
 end
