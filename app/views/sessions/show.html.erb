@@ -61,28 +61,45 @@
     <section class="pt-6">
       <div class="content">
         <h2>Suggested Reading List</h2>
+        <div class="divider"></div>
         <% @readings.each do |reading| %>
         <div class="tile tile--center mb-3">
-            <% if reading.url.empty? %>
-            <div class="tile__icon">
-                <div class="avatar avatar--small u-center bg-teal-300 text-gray-000"><i class="fas fa-book"></i></div>
-            </div>
-            <div class="tile__container">
-                <p class="tile__title m-0"><%= reading.name %></p>
-            </div>
-            <% else %>
-            <div class="tile__icon">
-                <div class="avatar avatar--small u-center bg-teal-300 text-gray-000"><i class="far fa-file-alt"></i></div>
-            </div>
-            <div class="tile__container">
-                <a href="<%= reading.url %>" class="tile__title m-0"><%= reading.name %></a>
-            </div>
-            <% end %>
+          <% if reading.url.empty? %>
+          <div class="tile__icon">
+            <div class="avatar avatar--small u-center bg-teal-300 text-gray-000"><i class="fas fa-book"></i></div>
+          </div>
+          <div class="tile__container">
+            <p class="tile__title m-0"><%= reading.name %></p>
+          </div>
+          <% else %>
+          <div class="tile__icon">
+            <div class="avatar avatar--small u-center bg-teal-300 text-gray-000"><i class="far fa-file-alt"></i></div>
+          </div>
+          <div class="tile__container">
+            <a href="<%= reading.url %>" class="tile__title m-0"><%= reading.name %></a>
+          </div>
+          <% end %>
         </div>
         <% end %>
       </div>
     </section>
-    <div>
-    </div>
+
+    <!-- quiz -->
+    <section class="pt-6">
+      <div class="content">
+        <h2>Test your Knowlegde</h2>
+        <div class="divider"></div>
+        <% @quizzes.each do |quiz| %>
+        <div class="card" style="max-width: 250px;">
+          <div class="content u-text-center pt-5 pb-2">
+            <i class="fas fa-check fa-3x text-purple-600"></i>
+            <p><%= quiz.name %></p>
+            <a class="btn outline text-teal-400 mb-2" href="<%= quiz.url %>">Take the Quiz</a>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </section>
+
   </div>
 </div>
