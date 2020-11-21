@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -143,14 +142,12 @@
                 </div>
             </div>
         </div>
-            <h2>Create a new Study Group</h2>
-            <%= simple_form_for @study_group do |f| %>
-            <%= f.input :creator_id %>
-            <%= f.input :name %>
-            <%= f.input :create_sessions %>
-            <%= f.input :edit_session %>
-            <%= f.button :submit %>
-            <% end %>
+
+            <div class="grid mt-20">
+              <div class="grid-cs-3 grid-ce-10">
+              <h1 class="headline-3"><%= @study_group.name %></h1>
+              </div>
+            </div>
         </section>
     </body>
 </html>
