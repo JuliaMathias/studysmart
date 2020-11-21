@@ -1,17 +1,17 @@
 class SessionsController < ApplicationController
-before_action :set_session, only: [:show]
- skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_session, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # def index
   #   @study_groups = policy_scope(StudyGroup).order(created_at: :desc)
   # end
 
   def show
-     authorize(@session)
-     @session = Session.find(params[:id])
-     @attachment = Attachment.new
-     authorize(@attachment)
-   end
+    authorize(@session)
+    @session = Session.find(params[:id])
+    @attachment = Attachment.new
+    authorize(@attachment)
+  end
 
   def new
     @study_group = StudyGroup.find(params[:study_group_id])
@@ -31,9 +31,6 @@ before_action :set_session, only: [:show]
     end
   end
 
-
-
-
   private
 
   def set_session
@@ -41,9 +38,9 @@ before_action :set_session, only: [:show]
     authorize(@session)
   end
 
-  # 1. checar se o usúario incluiu attachments ou não
+  # 1. checar se o usúario incluiu attachments ou não - Oi Júlia =D
 
   def session_params
-    params.require(:session).permit(:date, :name, :content, :video_call, :privacy)
+    params.require(:session).permit(:date, :name, :content, :video_call, :privacy, :photos)
   end
 end
