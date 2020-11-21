@@ -7,11 +7,15 @@ class SessionsController < ApplicationController
   # end
 
   def show
-    authorize(@session)
-    @session = Session.find(params[:id])
-    @attachment = Attachment.new
-    authorize(@attachment)
-  end
+     authorize(@session)
+     @session = Session.find(params[:id])
+     @attachment = Attachment.new
+     @videos = Attachment.where(session_id: @session.id, attachment_type: :video)
+     @readings = Attachment.where(session_id: @session.id, attachment_type: :reading)
+     @quizzes = Attachment.where(session_id: @session.id, attachment_type: :quiz)
+     authorize(@attachment)
+   end
+
 
   def new
     @study_group = StudyGroup.find(params[:study_group_id])
