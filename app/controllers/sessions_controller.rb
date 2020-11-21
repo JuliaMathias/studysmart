@@ -10,7 +10,9 @@ before_action :set_session, only: [:show]
      authorize(@session)
      @session = Session.find(params[:id])
      @attachment = Attachment.new
-     @attachments = Attachment.where(session_id: @session.id).includes(:attachment_type)
+     @videos = Attachment.where(session_id: @session.id, attachment_type: :video)
+     @readings = Attachment.where(session_id: @session.id, attachment_type: :reading)
+     @quizzes = Attachment.where(session_id: @session.id, attachment_type: :quiz)
      authorize(@attachment)
    end
 

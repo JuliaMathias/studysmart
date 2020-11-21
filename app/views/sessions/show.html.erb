@@ -1,7 +1,5 @@
  <div class="row u-center">
   <div class="col-6 m-10">
-    <h1 class="headline-3"><%= @session.name %></h1>
-    <p><%= @session.content %></p>
     <div class="modal" id="attachment-modal">
       <a href="#searchModalDialog" class="modal-overlay close-btn" aria-label="Close"></a>
       <div class="modal-content" role="document">
@@ -14,23 +12,29 @@
         </div>
 
 
-          <%= simple_form_for([@session, @attachment]) do |f| %>
-          <div class="modal-body">
-
+        <%= simple_form_for([@session, @attachment]) do |f| %>
+        <div class="modal-body">
           <%= f.input :attachment_type, collection: Attachment.attachment_types.keys %>
           <%= f.input :name %>
           <%= f.input :url %>
-          </div>
-          <div class="modal-footer u-text-right">
+        </div>
+        <div class="modal-footer u-text-right">
           <%= f.button :submit, class: 'btn-link btn-small' %>
         </div>
-
-          <% end %>
-
-
-
+        <% end %>
       </div>
     </div>
+
+    <h1 class="headline-3"><%= @session.name %></h1>
+    <div>
+       <% @videos.each do |video| %>
+        <iframe width="560" height="315" src="<%= attachment. %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       <% end %>
+    </div>
+    <p><%= @session.content %></p>
+
+
+
     <a class="btn btn-link" href="#attachment-modal">Add attachments</a>
   </div>
 </div>
