@@ -10,6 +10,7 @@ before_action :set_session, only: [:show]
      authorize(@session)
      @session = Session.find(params[:id])
      @attachment = Attachment.new
+     @attachments = Attachment.where(session_id: @session.id).includes(:attachment_type)
      authorize(@attachment)
    end
 
