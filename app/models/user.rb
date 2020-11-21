@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :user_study_groups
 
+  has_one_attached :photo
+
   has_many :study_groups, through: :user_study_groups
   has_many :sessions, through: :study_groups
 end
