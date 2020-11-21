@@ -16,7 +16,8 @@
 
           <%= simple_form_for([@session, @attachment]) do |f| %>
           <div class="modal-body">
-          <%= f.input :type %>
+
+          <%= f.input :attachment_type, collection: Attachment.attachment_types.keys %>
           <%= f.input :name %>
           <%= f.input :url %>
           </div>

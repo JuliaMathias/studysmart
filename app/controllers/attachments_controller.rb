@@ -10,19 +10,13 @@ class AttachmentsController < ApplicationController
      authorize(@attachment)
    end
 
-  def new
-    @session = Session.find(params[:session_id])
-    @attachment = Attachment.new
-    authorize(@attachment)
-  end
-
   def create
     @attachment = Attachment.new(attachment_params)
     # attach
     authorize(@attachment)
     @attachment.session = Session.find(params[:session_id])
     if @attachment.save
-      redirect_to session_path(@session)
+      redirect_to session_path(@attachment.session)
     else
       redirect_to root_path
     end
@@ -41,6 +35,6 @@ class AttachmentsController < ApplicationController
   # 1. checar se o usúario incluiu attachments ou não
 
   def attachment_params
-    params.require(:attachment).permit(:type, :name, :url)
+    params.require(:attachment).permit(:attachment_type, :name, :url)
   end
 end
