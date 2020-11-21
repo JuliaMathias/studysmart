@@ -90,11 +90,6 @@ index = 0
     index += 1
   end
 
-  puts "name: #{study_group.name},
-        creator_id: #{study_group.creator_id},
-        create_sessions: #{study_group.create_sessions},
-        edit? #{study_group.edit_session}"
-
   puts "StudyGroup: #{study_group.id} is created"
 end
 
