@@ -8,4 +8,9 @@ class PagesController < ApplicationController
     #   @study_groups = []
     # end
   end
+
+  def profile
+    @study_groups = StudyGroup.where(user_id: current_user.id)
+    @sessions = Session.where(user_id: current_user.id)
+  end
 end
