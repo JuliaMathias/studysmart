@@ -7,6 +7,7 @@ class StudyGroupsController < ApplicationController
   end
 
   def show
+    @sessions = Sessions.where(study_group_id: @study_group.id)
     authorize @study_group
   end
 
