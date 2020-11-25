@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @study_groups = StudyGroup.where(user_id: current_user.id)
+    @study_groups = StudyGroup.where(creator_id: current_user.id)
     @sessions = Session.where(user_id: current_user.id)
   end
 end
