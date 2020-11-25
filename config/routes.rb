@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  devise_scope :user do
+    match '/sessions/user', to: 'devise/sessions#create', via: :post
+  end
+
   resources :study_groups do
     resources :sessions, only: [:new, :create]
   end
