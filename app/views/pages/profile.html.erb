@@ -1,0 +1,46 @@
+
+<div class="grid mt-16">
+  <div class="grid-cs-3 grid-ce-10">
+
+    <section>
+      <div class="content">
+        <h1 class="headline-4">my profile</h1>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <div class="content">
+        <h2>study groups</h2>
+        <div class="row mt-2">
+
+          <% @study_groups.each do |group| %>
+            <%= link_to study_group_path(group), class: "text-decoration-none" do %>
+
+
+                <div class="card h-100 u-flex u-flex-column">
+
+                  <div class="card-head">
+                    <p class="card-head-title">
+                      <%= group.name %></p>
+                  </div>
+
+
+
+                </div>
+
+            <% end %>
+          <% end %>
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+  </div>
+</div>
+
+</body>
+</html>
