@@ -4,7 +4,7 @@ class Attachment < ApplicationRecord
   validates :attachment_type, presence: true
   validates :name, presence: true
 
-   enum attachment_type: {
+  enum attachment_type: {
     video: 0,
     reading: 1,
     quiz: 2
