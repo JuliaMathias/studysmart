@@ -7,15 +7,14 @@ class SessionsController < ApplicationController
   # end
 
   def show
-     authorize(@session)
-     @session = Session.find(params[:id])
-     @attachment = Attachment.new
-     @videos = Attachment.where(session_id: @session.id, attachment_type: :video)
-     @readings = Attachment.where(session_id: @session.id, attachment_type: :reading)
-     @quizzes = Attachment.where(session_id: @session.id, attachment_type: :quiz)
-     authorize(@attachment)
-   end
-
+    authorize(@session)
+    @session = Session.find(params[:id])
+    @attachment = Attachment.new
+    @videos = Attachment.where(session_id: @session.id, attachment_type: :video)
+    @readings = Attachment.where(session_id: @session.id, attachment_type: :reading)
+    @quizzes = Attachment.where(session_id: @session.id, attachment_type: :quiz)
+    authorize(@attachment)
+  end
 
   def new
     @study_group = StudyGroup.find(params[:study_group_id])
@@ -28,11 +27,7 @@ class SessionsController < ApplicationController
     # attach
     authorize(@session)
     @session.study_group = StudyGroup.find(params[:study_group_id])
-    if @session.save
-      redirect_to session_path(@session)
-    else
-      redirect_to root_path
-    end
+    @session.save ? (redirect_to session_path(@session)) : (redirect_to root_path)
   end
 
   private
@@ -45,6 +40,6 @@ class SessionsController < ApplicationController
   # 1. checar se o usúario incluiu attachments ou não - Oi Júlia =D
 
   def session_params
-    params.require(:session).permit(:date, :name, :content, :video_call, :privacy, :photos)
+    params.require(:session).permit(:date, :name, :content, :video_call, :privacy, photos: [])
   end
 end
