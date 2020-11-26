@@ -1,17 +1,14 @@
-
 <div class="grid mt-15">
   <div class="grid-cs-3 grid-ce-10">
    <h2>Create a new Session</h2>
-
    <%= simple_form_for([@study_group, @session]) do |f| %>
    <%= f.input :name %>
    <%= f.input :date %>
    <%= f.input :content %>
    <%= f.input :video_call %>
    <%= f.input :privacy, as: :boolean, checked_value: true, unchecked_value: false %>
-   <%= f.input :photos %>
+   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
    <%= f.button :submit %>
    <% end %>
-
  </div>
 </div>
