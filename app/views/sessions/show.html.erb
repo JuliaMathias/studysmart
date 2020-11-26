@@ -2,8 +2,8 @@
 <div class="row u-center">
   <div class="col-8 my-10">
     <!-- modal -->
-    <div class="modal" id="attachment-modal">
-      <a href="#searchModalDialog" class="modal-overlay close-btn" aria-label="Close"></a>
+    <div class="modal modal-animated--zoom-in" id="attachment-modal">
+      <a href="!#" class="modal-overlay close-btn" aria-label="Close"></a>
       <div class="modal-content" role="document">
         <div class="modal-header">
           <a href="#components" class="u-pull-right" aria-label="Close">
@@ -15,6 +15,7 @@
           </a>
           <div class="modal-title">Add attachments</div>
         </div>
+
         <%= simple_form_for([@session, @attachment]) do |f| %>
         <div class="modal-body">
           <%= f.input :attachment_type, collection: Attachment.attachment_types.keys %>
@@ -25,6 +26,7 @@
           <%= f.button :submit, class: 'btn-link btn-small' %>
         </div>
         <% end %>
+
       </div>
     </div>
 
@@ -38,65 +40,62 @@
       </div>
     </section>
 
-    <!-- images
-    <section class="pt-3">
-      <div class="content">
-        <h2>Session Images/Photos</h2>
-        <% @session.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-      </div>
-    </section>
-    -->
-
     <!-- videos -->
-    <section class="pt-3">
-      <div class="content">
-        <% @videos.each do |video| %>
-        <div class="my-3">
-          <iframe width=100% height="315" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <samp><%= video.name %></samp>
+    <% unless @videos.empty? %>
+      <section class="pt-3">
+        <div class="content">
+          <% @videos.each do |video| %>
+          <div class="my-3">
+            <iframe width=100% height="315" src="<%= video.url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <samp><%= video.name %></samp>
+          </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
-    </section>
+      </section>
+    <% end %>
+
 
     <!-- content -->
     <section class="pt-6">
       <div class="content">
-        <p><%= @session.content %></p>
+        <p><%= simple_format(@session.content) %></p>
       </div>
     </section>
 
     <!-- reading list -->
-    <section class="pt-6">
-      <div class="content">
-        <h2>Suggested Reading List</h2>
-        <div class="divider"></div>
-        <% @readings.each do |reading| %>
-        <div class="tile tile--center mb-3">
-          <% if reading.url.empty? %>
-          <div class="tile__icon">
-            <div class="avatar avatar--small u-center bg-teal-300 text-gray-000"><i class="fas fa-book"></i></div>
-          </div>
-          <div class="tile__container">
-            <p class="tile__title m-0"><%= reading.name %></p>
-          </div>
-          <% else %>
-          <div class="tile__icon">
-            <div class="avatar avatar--small u-center bg-teal-300 text-gray-000"><i class="far fa-file-alt"></i></div>
-          </div>
-          <div class="tile__container">
-            <a href="<%= reading.url %>" class="tile__title m-0"><%= reading.name %></a>
+    <% unless @readings.empty? %>
+      <section class="pt-6">
+        <div class="content">
+          <h2>Suggested Reading List</h2>
+          <div class="divider"></div>
+          <% @readings.each do |reading| %>
+          <div class="tile tile--center mb-3">
+            <% if reading.url.empty? %>
+            <div class="tile__icon">
+              <div class="avatar avatar--small u-center bg-teal-300 text-gray-000"><i class="fas fa-book"></i></div>
+            </div>
+            <div class="tile__container">
+              <p class="tile__title m-0"><%= reading.name %></p>
+            </div>
+            <% else %>
+            <div class="tile__icon">
+              <div class="avatar avatar--small u-center bg-teal-300 text-gray-000"><i class="far fa-file-alt"></i></div>
+            </div>
+            <div class="tile__container">
+              <a href="<%= reading.url %>" class="tile__title m-0"><%= reading.name %></a>
+            </div>
+            <% end %>
           </div>
           <% end %>
         </div>
-        <% end %>
-      </div>
-    </section>
+      </section>
+    <% end %>
+
+
 
     <!-- quiz -->
-    <section class="pt-6">
+    <% unless @quizzes.empty? %>
+      <section class="pt-6">
       <div class="content">
         <h2>Test your Knowlegde</h2>
         <div class="divider"></div>
@@ -111,6 +110,8 @@
         <% end %>
       </div>
     </section>
+    <% end %>
+
 
   </div>
 </div>
