@@ -1,9 +1,9 @@
 <!-- container -->
-<div class="row u-center">
-  <div class="col-8 my-10">
+<div class="row my-10">
+  <div class="col-9 ">
     <!-- modal -->
-    <div class="modal" id="attachment-modal">
-      <a href="#searchModalDialog" class="modal-overlay close-btn" aria-label="Close"></a>
+    <div class="modal modal-animated--zoom-in" id="attachment-modal">
+      <a href="!#" class="modal-overlay close-btn" aria-label="Close"></a>
       <div class="modal-content" role="document">
         <div class="modal-header">
           <a href="#components" class="u-pull-right" aria-label="Close">
@@ -31,25 +31,12 @@
     <!-- title and modal button -->
     <section class="pt-6">
       <div class="content">
-        <div class="u-text-right">
-          <a class="btn outline btn-link mb-2" href="#attachment-modal">Add attachments</a>
-        </div>
         <h1 class="headline-3"><%= @session.name %></h1>
       </div>
     </section>
 
-    <!-- images
-    <section class="pt-3">
-      <div class="content">
-        <h2>Session Images/Photos</h2>
-        <% @session.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-      </div>
-    </section>
-    -->
-
     <!-- videos -->
+    <% unless @videos.empty? %>
     <section class="pt-3">
       <div class="content">
         <% @videos.each do |video| %>
@@ -60,15 +47,34 @@
         <% end %>
       </div>
     </section>
+    <% end %>
 
     <!-- content -->
     <section class="pt-6">
       <div class="content">
-        <p><%= @session.content %></p>
+        <div class="u-text-right">
+          <a class="btn outline btn-link mb-2" href="#attachment-modal">Add attachments</a>
+        </div>
+        <p><%= simple_format(@session.content) %></p>
       </div>
     </section>
 
+    <!-- images-->
+    <% unless @session.photos.empty? %>
+
+          <section class="pt-3">
+            <div class="content">
+              <h2>Gallery</h2>
+              <% @session.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+          </section>
+
+    <% end %>
+
     <!-- reading list -->
+    <% unless @readings.empty? %>
     <section class="pt-6">
       <div class="content">
         <h2>Suggested Reading List</h2>
@@ -94,8 +100,10 @@
         <% end %>
       </div>
     </section>
+    <% end %>
 
     <!-- quiz -->
+    <% unless @quizzes.empty? %>
     <section class="pt-6">
       <div class="content">
         <h2>Test your Knowlegde</h2>
@@ -111,6 +119,56 @@
         <% end %>
       </div>
     </section>
+    <% end %>
+  </div>
+
+
+  <!-- sidebar -->
+  <div class="col-3">
+
+    <div class="u-pull-right u-position-fixed" id="sidebar">
+      <div class="space large my-3"></div>
+
+      <div class="sidebox">
+
+        <h6 class="sidebox__title text-purple-100">Share</h6>
+        <div class="content text-purple-100">
+          <div class="divider"></div>
+          <div class="u-flex u-justify-space-between text-purple-100">
+            <a href="#facebook">
+            <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#twitter">
+            <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#instagram">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#email">
+            <i class="far fa-envelope"></i>
+            </a>
+            <a href="#copy">
+            <i class="far fa-copy"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- videocall button -->
+      <% unless @session.video_call.empty? %>
+      <div class="btn-container">
+        <a class="btn bg-teal-200 text-gray-700 w-100 mt-2" href="<%= @session.video_call %>">
+
+            Join the meeting  <i class="fas fa-video"></i>
+          </a>
+      </div>
+      </div>
+
+      <% end %>
+    </div>
+
 
   </div>
+</div>
 </div>
