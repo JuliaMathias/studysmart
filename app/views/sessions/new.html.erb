@@ -7,8 +7,9 @@
    <%= f.input :content %>
    <%= f.input :video_call %>
    <%= f.input :privacy, as: :boolean, checked_value: true, unchecked_value: false %>
-   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+   <%= f.input :photos, as: :files, input_html: { multiple: true } %>
    <%= f.button :submit %>
    <% end %>
  </div>
 </div>
+
