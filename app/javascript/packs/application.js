@@ -28,7 +28,7 @@ require("channels")
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { openModal, closeModal, windowclose } from '../components/modal';
+import { openModal, closeModal, windowClose } from '../components/modal';
 
 
 // When the user clicks on the button, open the modal
@@ -39,6 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   openModal();
-  windowclose();
+  windowClose();
   closeModal();
+
 });
