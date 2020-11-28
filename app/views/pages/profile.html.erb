@@ -10,36 +10,47 @@
 
     <section class="mt-8">
       <div class="content">
-        <h2>study groups</h2>
-        <div class="row mt-2">
+        <h2 class="mb-4">study groups</h2>
+        <div id="card-container" class="u-flex">
+          <%= link_to new_study_group_path, class: "text-decoration-none" do %>
+          <div class="card mr-4 u-justify-center " >
+            <div class="content mb-0">
 
-          <% @study_groups.each do |group| %>
-            <%= link_to study_group_path(group), class: "text-decoration-none" do %>
+              <p class="title mt-2 mb-0">New Study Group</p>
 
+            </div>
+            <div class="u-text-center">
+             <p class="gray-900 headline-4 mb-0">+</p>
+           </div>
+         </div>
 
-                <div class="card h-100 u-flex u-flex-column">
+         <% end %>
 
-                  <div class="card-head">
-                    <p class="card-head-title">
-                      <%= group.name %></p>
-                  </div>
+         <% @study_groups.each do |group| %>
+         <%= link_to study_group_path(group), class: "text-decoration-none" do %>
 
+         <div class="card mr-4 u-justify-center " >
+          <div class="card-head">
+                <p class="card-head-title gray-700"><%= group.name %></p>
+              </div>
+          <div class="content">
 
+           <p class="gray-900 py-1 my-6"> This group has <%= group.sessions.count %> sessions</p>
 
-                </div>
-
-            <% end %>
-          <% end %>
-
+          </div>
 
         </div>
+
+        <% end %>
+        <% end %>
       </div>
-    </section>
+    </div>
+  </section>
 
 
 
 
-  </div>
+</div>
 </div>
 
 </body>
