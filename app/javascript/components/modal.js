@@ -27,4 +27,4 @@ const windowClose = window.onclick = function(event) {
   }
 }
 
-export { openModal, closeModal, window };
+export { openModal, closeModal, windowClose };
