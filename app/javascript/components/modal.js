@@ -21,7 +21,7 @@ const closeModal = close.onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-const windowclose = window.onclick = function(event) {
+const window = window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
