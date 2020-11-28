@@ -18,7 +18,7 @@ class StudyGroupsController < ApplicationController
 
   def create
     @study_group = StudyGroup.create(study_group_params)
-    # @study_Group.user = current_user
+    @study_Group.creator_id = current_user
     authorize @study_group
     @study_group.save ? (redirect_to study_group_path(@study_group)) : (render 'new')
   end

@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
     @session = Session.new(session_params)
     # attach
     authorize(@session)
+    @study_group = StudyGroup.find(params[:study_group_id])
     @session.study_group = StudyGroup.find(params[:study_group_id])
     @session.save ? (redirect_to session_path(@session)) : (render 'new')
   end
