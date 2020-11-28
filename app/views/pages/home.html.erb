@@ -1,31 +1,71 @@
-        <div class="hero fullscreen">
-            <div class="hero-body u-center">
-                <div class="w-90" style="position: relative">
-                    <div class="row">
-                        <div class="col-6" style="padding: 2rem;">
-                            <h1>This is a wonderful startup working on something cool.</h1>
-                            <p class="lead">Be a part of this revolutionary new feature that would change your studies forever. Seriously. Sign up right now below.</p>
-
-                            <div class="r">
-                                <b>Now in <div class="tag tag--link">Version One</div></b>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" placeholder="Enter your email address." />
-                                <button class="form-group-btn btn-link">
-                                    Sign Up
-                                </button>
-                            </div>
-
-                        </div>
-
-                        <div class="col-6" style="padding: 2rem;">
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
-                        </div>
-                    </div>
-                </div>
+        <div class="grid grid-cols-2 pt-8 pb-3">
+          <div class="grid grid-cols-1">
+            <div class="grid grid-gap-3">
+              <div class="grid-c-1"></div>
+              <%= image_tag  "logo-home.png", class: "grid-c-10" %>
+              <div class="grid-c-1"></div>
+              <div class="grid-c-1"></div>
+              <h6 class="home grid-c-8 grid-r-3">Beautiful, organized pages with all the material your study group will need. Studying made easy</h6>
             </div>
+            <div class="grid grid-gap-1">
+              <div class="grid-c-1"></div>
+              <%= button_to "CREATE YOUR OWN STUDY GROUP", new_study_group_path, :method => :get, class: "outline btn-link btn-outline-group grid-c-11" %>
+              <div class="grid-c-1"></div>
+              <button class="btn-transparent text-teal-400 btn-outline-session grid-c-11">CREATE A SESSION</button>
+            </div>
+          </div>
+
+          <div class="grid grid-gap-3 u-text-center">
+            <div class="grid-r-3 grid-c-12"></div>
+            <div class="grid-c-11 grid-r-8">
+              <%= image_tag "home1.png" %>
+            </div>
+          </div>
         </div>
+
+
+        <div class="grid grid-cols-2 bg-teal-100">
+          <div class="grid grid-gap-3 py-3">
+            <div class="grid-c-1"></div>
+            <h2 class="grid-c-11">But how does it works?</h2>
+            <div class="grid-c-1"></div>
+            <p class="grid-c-10">On studysmart you can quickly build a beautiful page with all the resources you need for studying. Videos, images, pdfs, even quizes! Now you don’t have to send emails full of attachments or send multiple files in group chats that easily get lost.</p>
+            <div class="grid-c-1"></div>
+            <div class="grid-c-1"></div>
+            <p class="grid-c-10"><b>You just have to send a link!</b> And if someone missed that study session, or want to review the material later, it will all be organized inside your study group.</p>
+          </div>
+          <%= image_tag "home2.png", class: "py-5" %>
+        </div>
+
+        <div class="grid grid-cols-2">
+          <div class="grid py-5">
+            <div class="grid grid-c-2"></div>
+            <%= image_tag "home3.png", class: "grid grid-c-8 grid-r-7 mb-3" %>
+            <div class="grid-c-2"></div>
+            <div class="grid-c-5"></div>
+            <%= button_to "Create your own study group", new_study_group_path, :method => :get, class: "btn-link grid-c-6 btn-group" %>
+          </div>
+          <div class="grid grid-gap-0 py-5">
+            <div class="grid-c-5"></div>
+            <h2 class="grid-c-5 grid-r-1">Ready to start?</h2>
+            <div class="grid-c-2"></div>
+            <div class="grid-c-1"></div>
+            <div class="bg-purple-100 grid-c-9 grid-r-3 p-2">
+              <p>You can create your study group and invite all your friends! They’ll have easy access to every study session you create for that group. </p>
+            </div>
+            <div class="grid-c-2"></div>
+            <div class="grid-c-5"></div>
+            <div class="grid-c-2 grid-r-1">OR</div>
+            <div class="grid-c-5"></div>
+            <div class="grid-c-1"></div>
+            <div class="bg-teal-100 grid-c-9 grid-r-2 p-2">
+              <p>You can create a single study session, to quickly share with your friends or coworkers!</p>
+            </div>
+            <div class="grid-c-2"></div>
+            <button class="bg-teal-400 text-light grid-c-6 btn-session">Create a Session</button>
+          </div>
+        </div>
+
 
         <script async src="../../../res/js/test.js"></script>
 
@@ -51,6 +91,5 @@
             This footer is made with <i class="fas fa-heart"></i> at Le Wagon
         </div>
         </div>
-        </section>
 
 
