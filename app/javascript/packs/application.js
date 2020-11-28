@@ -28,7 +28,7 @@ require("channels")
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { openModal, closeModal, window }; from'../components/modal';
+import { openModal, closeModal, windowclose } from '../components/modal';
 
 
 // When the user clicks on the button, open the modal
