@@ -2,9 +2,29 @@
   padding-bottom: 2rem;
 }
 
+.btn-container {
+
+  .btn {
+    border-color: #B5E6EB !important;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    font-weight: 500;
+
+    &:hover {
+    background-color: #7FCED5;
+    }
+  }
+
+}
+
+#sidebar {
+  width: 25vw;
+}
 .sidebox {
   background-color: #8256E1;
-  width: 25vw;
   display: flex;
   flex-direction: column;
   justify-content: center;

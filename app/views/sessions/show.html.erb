@@ -15,7 +15,6 @@
           </a>
           <div class="modal-title">Add attachments</div>
         </div>
-
         <%= simple_form_for([@session, @attachment]) do |f| %>
         <div class="modal-body">
           <%= f.input :attachment_type, collection: Attachment.attachment_types.keys %>
@@ -26,7 +25,6 @@
           <%= f.button :submit, class: 'btn-link btn-small' %>
         </div>
         <% end %>
-
       </div>
     </div>
 
@@ -57,7 +55,6 @@
         <div class="u-text-right">
           <a class="btn outline btn-link mb-2" href="#attachment-modal">Add attachments</a>
         </div>
-
         <p><%= simple_format(@session.content) %></p>
       </div>
     </section>
@@ -109,43 +106,55 @@
       </div>
     </section>
     <% end %>
-
-
   </div>
 
-  <div class="col-3 u-pull-right">
 
-    <div class="space large my-3 u-position-fixed"></div>
-    <div class="sidebox u-position-fixed mt-20">
-      <h6 class="sidebox__title text-purple-100">Share</h6>
-      <div class="content text-purple-100">
-        <div class="divider"></div>
-        <div class="u-flex u-justify-space-between">
-          <a href="#facebook">
-           <i class="fab fa-facebook"></i>
-         </a>
+  <!-- sidebar -->
+  <div class="col-3">
 
-         <a href="#twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
+    <div class="u-pull-right u-position-fixed" id="sidebar">
+      <div class="space large my-3"></div>
 
-        <a href="#instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+      <div class="sidebox">
 
-        <a href="#email">
-          <i class="far fa-envelope"></i>
-        </a>
+        <h6 class="sidebox__title text-purple-100">Share</h6>
+        <div class="content text-purple-100">
+          <div class="divider"></div>
+          <div class="u-flex u-justify-space-between text-purple-100">
+            <a href="#facebook">
+            <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#twitter">
+            <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#instagram">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#email">
+            <i class="far fa-envelope"></i>
+            </a>
+            <a href="#copy">
+            <i class="far fa-copy"></i>
+            </a>
+          </div>
+        </div>
 
-        <a href="#copy">
-          <i class="far fa-copy"></i>
-        </a>
       </div>
 
+      <!-- videocall button -->
+      <% unless @session.video_call.empty? %>
+      <div class="btn-container">
+        <a class="btn bg-teal-200 text-gray-700 w-100 mt-2" href="<%= @session.video_call %>">
+
+            Join the meeting  <i class="fas fa-video"></i>
+          </a>
+      </div>
+      </div>
+
+      <% end %>
     </div>
+
+
   </div>
-
 </div>
-</div>
-
 </div>
