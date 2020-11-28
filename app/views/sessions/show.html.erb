@@ -2,8 +2,8 @@
 <div class="row my-10">
   <div class="col-9 ">
     <!-- modal -->
-    <div class="modal modal-animated--zoom-in" id="attachment-modal">
-      <a href="!#" class="modal-overlay close-btn" aria-label="Close"></a>
+    <div class="modal" id="attachment-modal">
+      <a href="#" id="closebtn" class="modal-overlay close-btn" aria-label="Close"></a>
       <div class="modal-content" role="document">
         <div class="modal-header">
           <a href="#components" class="u-pull-right" aria-label="Close">
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <!-- title and modal button -->
+    <!-- title  -->
     <section class="pt-6">
       <div class="content">
         <h1 class="headline-3"><%= @session.name %></h1>
@@ -53,7 +53,7 @@
     <section class="pt-6">
       <div class="content">
         <div class="u-text-right">
-          <a class="btn outline btn-link mb-2" href="#attachment-modal">Add attachments</a>
+          <a class="btn outline btn-link mb-2" href="#attachment-modal" id="modalbtn">Add attachments</a>
         </div>
         <p><%= simple_format(@session.content) %></p>
       </div>
