@@ -59,6 +59,20 @@
       </div>
     </section>
 
+    <!-- images-->
+    <% unless @session.photos.empty? %>
+
+          <section class="pt-3">
+            <div class="content">
+              <h2>Gallery</h2>
+              <% @session.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+          </section>
+
+    <% end %>
+
     <!-- reading list -->
     <% unless @readings.empty? %>
     <section class="pt-6">
