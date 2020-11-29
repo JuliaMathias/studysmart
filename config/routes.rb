@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get '/profile', to: 'pages#profile'
+  get '/stash', to: 'pages#stash'
 
   resources :study_groups do
     resources :sessions, only: [:new, :create]
