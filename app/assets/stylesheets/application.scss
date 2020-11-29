@@ -18,3 +18,10 @@
   text-decoration: none;
 }
 
+.btn-responsive {
+  font-size: clamp(50%, 1.5rem, 110%) !important;
+  padding-top: clamp(0.25rem, 2vw, 0.75rem) !important;
+  padding-bottom: clamp(0.25rem, 2vw, 0.75rem) !important;;
+  padding-right: clamp(1rem, 8vw, 2rem) !important;
+  padding-left: clamp(1rem, 8vw, 2rem) !important;
+}

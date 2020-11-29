@@ -2,17 +2,17 @@
   <!-- start -->
   <div class="col-12 u-center">
     <section id="start" class="w-80 u-flex u-flex-column">
-      <%= image_tag  "logo.svg", class: "w-50" %>
-      <div class="u-flex u-justify-space-between mt-4">
-        <div class="w-40 u-flex u-flex-column u-justify-center">
-          <p class="home">
+      <%= image_tag  "logo.svg", class: "col-sm-6" %>
+      <div class="u-flex u-justify-space-between mt-4 row p-0 mr-0">
+        <div class="col-sm-6 u-flex u-flex-column u-justify-center mb-3">
+          <p class="big-lead pb-2">
             Beautiful, organized pages with all the material your study group will need. Studying made easy
           </p>
-          <%= button_to "CREATE YOUR OWN STUDY GROUP", new_study_group_path, :method => :get, class: "outline btn-link btn-large" %>
-          <button class="btn-transparent text-teal-400 btn-large">CREATE A SESSION</button>
+          <%= button_to "CREATE YOUR OWN STUDY GROUP", new_study_group_path, :method => :get, class: "outline btn-link btn-large " %>
+          <%= button_to "CREATE A SESSION", new_study_group_path, :method => :get, class: "btn-transparent text-teal-400 btn-large" %>
         </div>
-        <div class="w-40">
-          <%= image_tag "home1.png" %>
+        <div class="col-sm-6 mb-3">
+          <%= image_tag "home1.png", class: "u-pull-right" %>
         </div>
       </div>
 
