@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :stash ]
 
   def home
     # if params[:query].present?
@@ -12,5 +12,9 @@ class PagesController < ApplicationController
   def profile
     @study_groups = StudyGroup.where(creator_id: current_user.id)
     @sessions = Session.where(user_id: current_user.id)
+  end
+
+  def stash
+
   end
 end
