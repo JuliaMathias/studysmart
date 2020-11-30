@@ -37,3 +37,8 @@
 .hidden {
   visibility: hidden;
 }
+
+.fixed-bottom {
+  bottom: 0;
+  position: fixed;
+}

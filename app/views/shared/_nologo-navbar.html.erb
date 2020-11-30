@@ -1,7 +1,7 @@
- <% if user_signed_in? %>
- <div class="header header-fixed unselectable header-animated header-clear py-1" id="nav">
+<% if user_signed_in? %>
+<div class="header header-fixed unselectable header-animated header-clear py-1" id="nav">
   <!--  no-transition  -->
-   <div class="header-brand">
+  <div class="header-brand">
     <div class="nav-item no-hover">
       <%= link_to root_path do %>
       <%= image_tag("logo-simple.png", alt: "logo", class: "hidden") %>
@@ -12,26 +12,27 @@
       <span></span>
       <span></span>
     </div>
-
   </div>
   <div class="header-nav" id="header-menu">
-    <div class="nav-left">
+    <div class="nav-right">
+      <div class="nav-item has-sub toggle-hover purple-600" id="dropdown">
+        <a class="nav-dropdown-link ">
+          <div class="avatar avatar--small" style="background-image: url('')"></div>
+        </a>
+        <ul class="dropdown-menu dropdown-animated u-text-right" role="menu">
+          <li role="menu-item"><%= link_to 'profile', profile_path %></li>
+          <li role="menu-item"><%= link_to '+ study group', new_study_group_path %></li>
+          <li role="menu-item"><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="nav-item has-sub toggle-hover purple-600" id="dropdown">
-      <a class="nav-dropdown-link "><%= image_tag("avatar-small.png", alt: "avatar", class: "avatar avatar--small") %></a>
-      <ul class="dropdown-menu dropdown-animated" role="menu">
-       <li role="menu-item"><%= link_to 'profile', profile_path %></li>
-       <li role="menu-item"><%= link_to '+ study group', new_study_group_path %></li>
-       <li role="menu-item"><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
-     </ul>
-   </div>
- </div>
+  </div>
 </div>
-</div>
+
 <% else %>
 <div class="header header-fixed unselectable header-animated header-clear pt-1" id="nav">
-   <div class="header-brand">
+  <div class="header-brand">
     <div class="nav-item no-hover">
       <%= link_to root_path do %>
       <%= image_tag("logo-simple.png", alt: "logo", class: "hidden") %>
@@ -42,16 +43,15 @@
       <span></span>
       <span></span>
     </div>
-
   </div>
   <div class="header-nav" id="header-menu">
-    <div class="nav-left">
-    </div>
-    <div class="mt-1">
+    <div class="nav-right">
+      <div class="mt-2 u-text-right">
       <%= link_to 'login', new_user_session_path, class: "outline btn btn-link" %>
     </div>
+    </div>
 
- </div>
+  </div>
 </div>
 </div>
 <% end %>
