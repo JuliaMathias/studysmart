@@ -1,5 +1,6 @@
  <% if user_signed_in? %>
- <div class="header header-fixed unselectable header-animated header-clear py-1">
+ <div class="header header-fixed unselectable header-animated header-clear py-1" id="nav">
+  <!--  no-transition  -->
    <div class="header-brand">
     <div class="nav-item no-hover">
       <%= link_to root_path do %>
@@ -29,7 +30,7 @@
 </div>
 </div>
 <% else %>
-<div class="header header-fixed unselectable header-animated header-clear pt-1">
+<div class="header header-fixed unselectable header-animated header-clear pt-1" id="nav">
    <div class="header-brand">
     <div class="nav-item no-hover">
       <%= link_to root_path do %>
