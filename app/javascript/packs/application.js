@@ -29,7 +29,7 @@ require("channels")
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { openModal } from '../components/modal';
-
+import { dropdown } from '../components/dropdown';
 
 // When the user clicks on the button, open the modal
 
@@ -39,5 +39,12 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   openModal();
+  dropdown();
 
+  $('.has-sub').on('click', function(e) { // Get all dropdown menu toggles
+      $('.dropdown-menu').not($(this).children('.dropdown-menu')).removeClass('dropdown-shown'); // Hide all other dropdown menus
+      $('.has-sub').not($(this)).removeClass('active'); // Remove the active selector from the other dropdown toggles
+      $(this).children('.dropdown-menu').toggleClass('dropdown-shown'); // Show/hide the dropdown menu associated with the toggle being clicked
+      $(this).toggleClass('active'); // Toggle the active selector on the nav-item
+  });
 });
