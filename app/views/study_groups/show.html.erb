@@ -26,7 +26,7 @@
                 <p class="card-head-title gray-700"><%= session.name %></p>
               </div>
               <div class="content">
-                <p class="gray-900 mb-5"><%= session.content.truncate(140) %></p>
+                <p class="gray-900 mb-5 u-text-ellipsis"><%= session.content.to_s.truncate(140) %></p>
               </div>
               <div class="card-footer level content"><%= session.date %></div>
             </div>

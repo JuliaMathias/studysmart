@@ -4,7 +4,7 @@
    <%= simple_form_for([@study_group, @session]) do |f| %>
    <%= f.input :name %>
    <%= f.input :date %>
-   <%= f.input :content %>
+   <%= f.rich_text_area :content %>
    <%= f.input :video_call %>
    <%= f.input :privacy, as: :boolean, checked_value: true, unchecked_value: false %>
    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
