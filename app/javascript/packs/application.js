@@ -48,3 +48,6 @@ document.addEventListener('turbolinks:load', () => {
       $(this).toggleClass('active'); // Toggle the active selector on the nav-item
   });
 });
+
+require("trix")
+require("@rails/actiontext")
