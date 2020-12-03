@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :edit]
 
   # def index
   #   @study_groups = policy_scope(StudyGroup).order(created_at: :desc)
@@ -29,6 +29,11 @@ class SessionsController < ApplicationController
     @study_group = StudyGroup.find(params[:study_group_id])
     @session.study_group = StudyGroup.find(params[:study_group_id])
     @session.save ? (redirect_to session_path(@session)) : (render 'new')
+  end
+
+  def edit
+    authorize(@session)
+    @session.edit = params[session_params]
   end
 
   private
