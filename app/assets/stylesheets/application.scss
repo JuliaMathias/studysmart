@@ -43,6 +43,18 @@
   position: fixed;
 }
 
+.padded {
+    padding: 0 2rem;
+}
+
+.required {
+    position: relative;
+    top: 1px;
+    font-weight: normal;
+    color: #363636;
+    padding-left: 0.1rem;
+}
+
 :root {
   /* v1 Colors */
   --cirrus-fg: #374054;
