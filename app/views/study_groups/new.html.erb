@@ -1,13 +1,35 @@
-
-<div class="grid mt-10">
-  <div class="grid-cs-3 grid-ce-10">
-
-<h2>Create a new Study Group</h2>
-<%= simple_form_for @study_group do |f| %>
-<%= f.input :name %>
-<%= f.input :create_sessions %>
-<%= f.input :edit_session %>
-<%= f.button :submit %>
-<% end %>
+ <div class="hero fullscreen">
+  <div class="hero-body">
+    <div class="content">
+      <%= simple_form_for @study_group, html: { class: "frame p-0"} do |f| %>
+      <div class="frame__body p-0">
+        <div class="row p-0 level fill-height">
+          <div class="col-6 p-0 bg"></div>
+          <div class="col-6">
+            <div class="space xlarge"></div>
+            <div class="padded">
+              <h3>Create a new Study Group</h3>
+              <div class="form-section">
+                <%= f.label :name %>
+                <div class="input-control">
+                  <%= f.input_field :name, class: 'input-contains-icon' %>
+                  <span class="icon"><i class="far fa-wrapper fa-user-circle small"></i></span>
+                </div>
+              </div>
+              <div class="form-section">
+                <%= f.input :create_sessions, label: 'Allow members to create sessions?' %>
+              </div>
+              <div class="form-section">
+                <%= f.input :edit_session, label: 'Allow members to edit sessions?' %>
+              </div>
+              <%= f.button :submit, class: 'btn-primary u-pull-right mt-1 mb-24' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-</div>
+
+
