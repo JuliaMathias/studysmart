@@ -4,8 +4,22 @@
 
 .btn-container {
 
-  .btn {
+  .bg-teal-200 {
     border-color: #B5E6EB !important;
+
+    &:hover {
+      background-color: #7FCED5 !important;
+      border-color: #7FCED5 !important;
+    }
+  }
+
+  .bg-purple-200 {
+    border-color: #E2D4F8 !important;
+
+    &:hover {
+      background-color: #CBB2F6 !important;
+      border-color: #CBB2F6 !important;
+    }
   }
 
   a {

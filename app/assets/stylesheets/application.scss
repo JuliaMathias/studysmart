@@ -64,7 +64,27 @@
     height: auto;
   }
 
+.m-half {
+  margin: 0.25rem !important;
+}
 
+.mx-half {
+  margin-left: 0.25rem !important;
+  margin-right: 0.25rem !important;
+}
+
+.my-half {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.mr-half {
+  margin-right: 0.25rem !important;
+}
+
+.ml-half {
+  margin-left: 0.25rem !important;
+}
 :root {
   /* v1 Colors */
   --cirrus-fg: #374054;
