@@ -43,7 +43,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 35px 30px;
+  padding: 35px 5px;
 }
 .sidebox .divider {
   margin-top: 1rem;
@@ -106,3 +106,14 @@
     padding-right: 1.1rem;
   }
 }
+
+ .share-btn {
+    // border: 0.5px solid rgba(222, 226, 230, 0.8);
+    // background-color: rgba(222, 226, 230, 0.2);
+    padding: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.8em;
+    padding-right: 0.8rem;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
