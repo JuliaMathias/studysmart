@@ -41,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   openModal();
   dropdown();
+  copyUrl();
   ;
 
   $('.has-sub').on('click', function(e) { // Get all dropdown menu toggles
