@@ -3,6 +3,9 @@
     <section>
       <div class="content">
         <h1 class="headline-4 mb-6"><%= @study_group.name %></h1>
+        <div class="btn bg-teal-200 text-gray-700 w-100 mt-2">
+            <%= link_to 'Update Study Group', edit_study_group_path(@study_group) %>
+        </div>
         <div id="card-container" class="u-flex">
           <%= link_to new_study_group_session_path(@study_group), class: "text-decoration-none" do %>
           <div class="card mr-4 u-justify-center " >
