@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show]
-  skip_before_action :authenticate_user!, only: [:index, :show, :edit]
+  before_action :set_session, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # def index
   #   @study_groups = policy_scope(StudyGroup).order(created_at: :desc)
@@ -33,7 +33,12 @@ class SessionsController < ApplicationController
 
   def edit
     authorize(@session)
-    @session.edit = params[session_params]
+  end
+
+  def update
+    authorize @session
+    @session.update(session_params)
+    redirect_to session_path(@session)
   end
 
   private
@@ -49,3 +54,4 @@ class SessionsController < ApplicationController
     params.require(:session).permit(:date, :name, :content, :video_call, :privacy, photos: [])
   end
 end
+
