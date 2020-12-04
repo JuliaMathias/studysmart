@@ -31,7 +31,7 @@ require("@rails/actiontext")
 // import { initSelect2 } from '../components/init_select2';
 import { openModal } from '../components/modal';
 import { dropdown } from '../components/dropdown';
-
+import { copyUrl } from '../components/copy';
 // When the user clicks on the button, open the modal
 
 
@@ -41,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   openModal();
   dropdown();
+  ;
 
   $('.has-sub').on('click', function(e) { // Get all dropdown menu toggles
       $('.dropdown-menu').not($(this).children('.dropdown-menu')).removeClass('dropdown-shown'); // Hide all other dropdown menus
