@@ -1,0 +1,78 @@
+<!-- hero -->
+<div class="hero mb-10 w-70 u-center">
+  <div class="hero-body mt-10">
+    <div style="margin: auto">
+      <!-- form starts -->
+
+      <%= simple_form_for([@study_group, @session], html: { class: "frame p-0"}) do |f| %>
+      <div class="frame__body p-0">
+        <div class="row p-0 level fill-height">
+          <div class="col">
+            <div class="space xlarge"></div>
+            <div class="padded">
+
+              <!-- title and instructions -->
+              <h1 class="u-text-center u-font-alt">Update Session</h1>
+              <div class="divider pb-0"></div>
+              <p class="u-text-center">Here you can update all the material your group members will need for their study session.</p>
+              <div class="divider"></div>
+
+              <!-- name -->
+              <div class="form-group mb-4">
+                <%= f.label :name, class: 'form-group-label' do %>
+                <span class="icon"><i class="fa-wrapper fas fa-font"></i></span>
+                <% end %>
+                <%= f.input_field :name, class: 'form-group-input', placeholder: 'What will you study today?' %>
+              </div>
+
+              <!-- options -->
+              <div class="form-section section-inline">
+                <div class="section-body row">
+                  <div class="form-group col-6 pl-0 mb-4 pr-2">
+                    <%= f.label :date, class: 'form-group-label' do %>
+                    <span class="icon"><i class="fa-wrapper far fa-calendar"></i></span>
+                    <% end %>
+                    <%= f.input_field :date, class: 'form-group-input' %>
+                  </div>
+                  <div class="form-group col-6 pl-0 mb-4 pl-2">
+                    <%= f.label :video_call, class: 'form-group-label' do %>
+                    <span class="icon"><i class="fa-wrapper fas fa-video"></i></span>
+                    <% end %>
+                    <%= f.input_field :video_call, class: 'form-group-input', placeholder: 'Your zoom or google meets link' %>
+                  </div>
+
+                  <div class="form-group col-6 pl-0 pr-2">
+                    <%= f.label :photos, class: 'form-group-label', label: 'Create a gallery' do %>
+                    <span class="icon"><i class="fa-wrapper far fa-images"></i></span>
+                    <% end %>
+                    <%= f.input_field :photos, as: :file, input_html: { multiple: true }, class: 'form-group-input', placeholder: 'Create a gallery' %>
+                  </div>
+
+                  <div class="form-section form-ext-checkbox col-6 pl-0 u-text-right">
+                    <%= f.input_field :privacy, class: 'form-ext-input mt-2' %>
+                    <%= f.label :privacy, label: 'Make session private?', class: 'form-ext-label mt-2'%>
+                  </div>
+
+
+                  </div>
+                </div>
+                <div class="my-4">
+                <%= f.rich_text_area :content, class: 'big-textarea', placeholder: 'Describe what your study session will be about, give the participants discussion questions, etc.' %>
+               <!-- submit -->
+              <div class="space"></div>
+              <div class="btn-group u-pull-right mt-4 mb-10">
+                    <%= f.button :submit, class: 'btn-primary' %>
+              </div>
+              <div class="space xlarge"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <!-- end of form -->
+    </div>
+  </div>
+</div>
+

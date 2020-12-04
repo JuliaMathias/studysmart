@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show]
+  before_action :set_session, only: [:show, :edit, :update]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   # def index
@@ -32,6 +32,16 @@ class SessionsController < ApplicationController
     @session.save ? (redirect_to session_path(@session)) : (render 'new')
   end
 
+  def edit
+    authorize(@session)
+  end
+
+  def update
+    authorize @session
+    @session.update(session_params)
+    redirect_to session_path(@session)
+  end
+
   private
 
   def set_session
@@ -45,3 +55,4 @@ class SessionsController < ApplicationController
     params.require(:session).permit(:date, :name, :content, :video_call, :privacy, photos: [])
   end
 end
+
