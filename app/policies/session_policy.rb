@@ -17,12 +17,12 @@ class SessionPolicy < ApplicationPolicy
     return true
   end
 
-  def edit?
-    update?
+  def update?
+    record.study_group.edit_session
   end
 
-  def update?
-    record.user == user
+  def edit?
+    update?
   end
 
   def destroy?
