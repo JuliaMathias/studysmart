@@ -10,11 +10,12 @@ class SessionPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    true
+    # record.study_group.create_sessions
   end
 
   def show?
-    return true
+    true
   end
 
   def update?
