@@ -6,15 +6,19 @@ class StudyGroupPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    true
   end
 
   def show?
-    return true
+    true
+  end
+
+  def edit?
+    update?
   end
 
   def update?
-    record.user == user
+    true
   end
 
   def destroy?

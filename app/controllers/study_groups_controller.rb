@@ -8,12 +8,12 @@ class StudyGroupsController < ApplicationController
 
   def show
     @sessions = Session.where(study_group_id: @study_group.id)
-    authorize @study_group
+    authorize(@study_group)
   end
 
   def new
     @study_group = StudyGroup.new
-    authorize @study_group
+    authorize(@study_group)
   end
 
   def create
@@ -24,11 +24,11 @@ class StudyGroupsController < ApplicationController
   end
 
   def edit
-    authorize @study_group
+    authorize(@study_group)
   end
 
   def update
-    authorize @study_group
+    authorize(@study_group)
     @study_group.update(study_group_params)
     redirect_to study_group_path(@study_group)
   end
@@ -43,7 +43,7 @@ class StudyGroupsController < ApplicationController
 
   def set_study_group
     @study_group = StudyGroup.find(params[:id])
-    authorize @study_group
+    authorize(@study_group)
   end
 
   def study_group_params

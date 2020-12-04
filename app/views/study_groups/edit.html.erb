@@ -1,0 +1,38 @@
+ <div class="hero fullscreen">
+  <div class="hero-body">
+    <div class="content">
+      <%= simple_form_for @study_group, html: { class: "frame p-0"} do |f| %>
+      <div class="frame__body p-0">
+        <div class="row p-0 level fill-height">
+          <div class="col-6 p-0 bg"></div>
+          <div class="col-6">
+            <div class="space xlarge"></div>
+            <div class="space xlarge"></div>
+            <div class="padded">
+              <h3>Update Study Group</h3>
+              <div class="form-section mt-3">
+                <%= f.label :name %>
+                <div class="input-control">
+                  <%= f.input_field :name, class: 'input-contains-icon' %>
+                  <span class="icon"><i class="far fa-wrapper fa-user-circle small"></i></span>
+                </div>
+              </div>
+              <div class="form-section form-ext-checkbox mt-2">
+                <%= f.input_field :create_sessions, class: 'form-ext-input' %>
+                <%= f.label :create_sessions, label: 'Allow members to create sessions?', class: 'form-ext-label' %>
+              </div>
+              <div class="form-section form-ext-checkbox">
+                <%= f.input_field :edit_session, class: 'form-ext-input' %>
+                <%= f.label :edit_session, label: 'Allow members to edit sessions?', class: 'form-ext-label' %>
+              </div>
+              <%= f.button :submit, class: 'btn-primary u-pull-right mt-4 mb-24' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
