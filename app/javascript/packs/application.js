@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("trix")
 require("@rails/actiontext")
+require("social-share-button")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -31,7 +32,7 @@ require("@rails/actiontext")
 // import { initSelect2 } from '../components/init_select2';
 import { openModal } from '../components/modal';
 import { dropdown } from '../components/dropdown';
-
+import { copyUrl } from '../components/copy';
 // When the user clicks on the button, open the modal
 
 
@@ -41,6 +42,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   openModal();
   dropdown();
+  copyUrl();
+  ;
 
   $('.has-sub').on('click', function(e) { // Get all dropdown menu toggles
       $('.dropdown-menu').not($(this).children('.dropdown-menu')).removeClass('dropdown-shown'); // Hide all other dropdown menus

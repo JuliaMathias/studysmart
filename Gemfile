@@ -42,6 +42,8 @@ gem 'cloudinary', '~> 1.16.0'
 
 gem "image_processing", "~> 1.0"
 
+gem 'social-share-button'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

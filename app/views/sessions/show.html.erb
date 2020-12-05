@@ -58,14 +58,14 @@
     <!-- images-->
     <% unless @session.photos.empty? %>
 
-          <section class="pt-3">
-            <div class="content">
-              <h2>Gallery</h2>
-              <% @session.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-              <% end %>
-            </div>
-          </section>
+    <section class="pt-3">
+      <div class="content">
+        <h2>Gallery</h2>
+        <% @session.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+      </div>
+    </section>
 
     <% end %>
 
@@ -129,54 +129,67 @@
 
         <h6 class="sidebox__title text-purple-100">Share</h6>
         <div class="content text-purple-100">
-          <div class="divider"></div>
           <div class="u-flex u-justify-space-between text-purple-100">
-            <a href="#facebook">
+            <!-- <a href="#facebook">
             <i class="fab fa-facebook"></i>
             </a>
-            <a href="#twitter">
-            <i class="fab fa-twitter"></i>
-            </a>
+
             <a href="#instagram">
             <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#email">
-            <i class="far fa-envelope"></i>
-            </a>
-            <a href="#copy">
-            <i class="far fa-copy"></i>
-            </a>
+          </a> -->
+
+          <div class="form-section">
+            <div class="input-control" id="copy">
+
+              <input
+              class="input-contains-icon text-purple-100"
+              id="url"
+              name="url"
+              placeholder="<%= @url %>"
+              type="text"
+              value="<%= @url %>"
+              />
+              <span class="icon">
+                <i
+                class="far fa-wrapper far fa-copy"
+                ></i>
+              </span>
+            </div>
           </div>
-        </div>
-
-      </div>
-
-      <!-- videocall button -->
-      <% unless @session.video_call.empty? %>
-      <div class="btn-container">
-        <a class="btn bg-teal-200 text-gray-800 w-100 mt-2 mb-0 btn-large" href="<%= @session.video_call %>">
-
-            Join the meeting<i class="ml-1 fas fa-video"></i>
+          <%= social_share_button_tag(@session.name, :url => "http://google.com") %>
+          <!-- <a href="#email" class="share-btn self-center">
+            <i class="far fa-envelope"></i>
           </a>
-      </div>
 
-      <div class="btn bg-teal-200 text-gray-700 w-100 mt-2">
-       <%= link_to 'Update Session', edit_session_path(@session) %>
-      </div>
-
-      <% end %>
-
-      <!-- modal button -->
-      <div class="btn-container">
-        <button class="btn bg-purple-200 text-gray-700 w-100 btn-large" id="modal-opener">Add video<i class="ml-half fab fa-youtube"></i>, readings<i class="mx-half fas fa-book"></i> or a quiz!<i class="ml-half fas fa-check"></i></button>
-
+          <a href="#twitter" class="share-btn self-center">
+            <i class="fab fa-twitter"></i>
+            </a> -->
+        </div>
       </div>
 
     </div>
 
-  </div>
+    <!-- videocall button -->
+    <% unless @session.video_call.empty? %>
+    <div class="btn-container">
+      <a class="btn bg-teal-200 text-gray-800 w-100 mt-2 mb-0 btn-large" href="<%= @session.video_call %>">
+
+        Join the meeting<i class="ml-1 fas fa-video"></i>
+      </a>
+    </div>
+    <% end %>
 
 
+    <!-- modal button -->
+    <div class="btn-container">
+      <button class="btn bg-purple-200 text-gray-700 w-100 btn-large" id="modal-opener">Add video<i class="ml-half fab fa-youtube"></i>, readings<i class="mx-half fas fa-book"></i> or a quiz!<i class="ml-half fas fa-check"></i></button>
+    </div>
+
   </div>
+
+</div>
+
+
+</div>
 </div>
 </div>
