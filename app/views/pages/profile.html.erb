@@ -1,10 +1,16 @@
-
-<div class="grid mt-16">
-  <div class="grid-cs-3 grid-ce-10">
+<div class="row w-70 u-center mt-16 bg-gray-100">
+  <!-- start -->
+  <div class="col-12 pb-3">
 
     <section>
       <div class="content">
-        <h1 class="headline-4">my profile</h1>
+        <h1 class="headline-3">Hi <%= current_user.first_name %>!</h1>
+      </div>
+    </section>
+
+    <section class="mt-8 bg-purple-100">
+      <div class="content">
+        <h2 class="text-purple-200">Your next session</h2>
       </div>
     </section>
 
@@ -53,5 +59,3 @@
 </div>
 </div>
 
-</body>
-</html>
