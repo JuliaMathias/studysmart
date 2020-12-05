@@ -30,3 +30,8 @@
 .frame .frame__footer {
   padding: 0.5rem 1rem;
 }
+
+span {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break:clone;
+}

@@ -1,4 +1,4 @@
-<div class="row w-60 u-center mt-16">
+<div class="row w-60 u-center mt-16 u-items-flex-start">
   <!-- start -->
   <div class="col-12 pb-3">
 
@@ -29,11 +29,30 @@
         </section>
   </div>
 
-  <div class="col-8 mb-3">
+  <div class="col-sm-8 my-3">
+    <h2>Upcoming Sessions</h2>
+    <div class="row">
+      <% @sessions.each do |session| %>
+        <div class="col frame bg-purple-600 mr-1 mb-1" style="min-width: 15em";>
+          <%= link_to session_path(session), class: "p-0 text-light" do %>
+          <div class="frame-header">
+            <p class="title px-2 my-3"> <span class="bg-gray-100 text-purple-700 p-1 u-round"><%= session.name.upcase %></span></p>
+          </div>
+          <% end %>
+           <div class="frame__body text-light">
+              <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
+           </div>
 
+          <div class="frame__footer">
+            <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-purple-500 text-light btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div class="col-4 u-flex mb-2">
+  <div class="col-sm-4 u-flex my-3">
 
     <div class="bg-teal-100 p-2 u-flex u-flex-column">
 
@@ -47,11 +66,13 @@
               <%= link_to study_group_path(group), class: "p-0" do %>
               <p class="title"><%= group.name.upcase %></p>
               <% end %>
-              <p class="tile__subtitle m-0">This group has <%= group.sessions.count %> sessions</p>
+              <p class="frame__subtitle m-0">This group has <%= group.sessions.count %> sessions</p>
            </div>
 
-          <div class="frame__footer">
-             <%= button_to "new session", new_study_group_session_path(group), :method => :get, class: "btn-xsmall btn-link" %>
+          <div class="frame__footer u-inline-flex u-items-center">
+             <%= link_to new_study_group_session_path(group), :method => :get, class: "mr-1" do %><i class="fas fa-plus"></i> session<% end %>
+             <a href="#" class="mr-1"><i class="fas fa-edit"></i></a>
+             <a href="#" class=""><i class="far fa-trash-alt"></i></a>
           </div>
 
         </div>

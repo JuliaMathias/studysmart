@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 
   def profile
     @study_groups = current_user.study_groups
-    @sessions = current_user.sessions
+    @sessions = current_user.sessions.order(date: :asc)
     @next_session = current_user.sessions.order(date: :desc).last
   end
 
