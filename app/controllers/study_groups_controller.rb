@@ -20,7 +20,8 @@ class StudyGroupsController < ApplicationController
     @study_group = StudyGroup.create(study_group_params)
     @study_group.creator_id = current_user.id
     authorize @study_group
-    @study_group.save ? (redirect_to study_group_path(@study_group)) : (render 'new')
+    @user_study_group = UserStudyGroup.create(user_id: current_user.id, study_group_id: @study_group.id)
+    @study_group.save && @user_study_group.save ? (redirect_to study_group_path(@study_group)) : (render 'new')
   end
 
   def edit

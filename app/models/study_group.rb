@@ -1,6 +1,8 @@
 class StudyGroup < ApplicationRecord
+
   has_many :sessions
   has_many :user_study_groups
+  has_many :users, through: :user_study_groups
 
   validates :creator_id, presence: false
   validates :name, presence: true

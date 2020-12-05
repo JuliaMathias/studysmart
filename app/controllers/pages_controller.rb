@@ -11,7 +11,11 @@ class PagesController < ApplicationController
 
   def profile
     @study_groups = StudyGroup.where(creator_id: current_user.id)
+
+
+
     @sessions = Session.where(user_id: current_user.id)
+
   end
 
   def stash
