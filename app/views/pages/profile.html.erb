@@ -1,58 +1,64 @@
-<div class="row w-70 u-center mt-16 bg-gray-100">
+<div class="row w-60 u-center mt-16">
   <!-- start -->
   <div class="col-12 pb-3">
 
     <section>
-      <div class="content">
+
         <h1 class="headline-3">Hi <%= current_user.first_name %>!</h1>
-      </div>
+
     </section>
 
-    <section class="mt-8 bg-purple-100">
-      <div class="content">
-        <h2 class="text-purple-200">Your next session</h2>
-      </div>
-    </section>
+    <section class="mt-8 pt-4 bg-purple-100">
+          <div class="u-flex u-items-flex-end u-justify-space-between">
+            <div class="mb-5 ml-5 w-60">
+              <h2 class="text-purple-700 pb-2">Your next session</h2>
+              <h6 class="font-light u-pull-right font-smaller btn bg-teal-200 text-gray-700 u-text-left btn--pilled mr-4">on <%= @next_session.date.to_formatted_s(:short) %></h6>
+              <h4><%= @next_session.name %></h4>
 
-    <section class="mt-8">
-      <div class="content">
-        <h2 class="mb-4">study groups</h2>
-        <div id="card-container" class="u-flex">
-          <%= link_to new_study_group_path, class: "text-decoration-none" do %>
-          <div class="card mr-4 u-justify-center " >
-            <div class="content mb-0">
-
-              <p class="title mt-2 mb-0">New Study Group</p>
+              <p class="mb-3"><%= @next_session.content.to_plain_text.truncate(280) %></p>
+              <div class="u-flex u-items-center">
+                <%= button_to "go to session", session_path(@next_session), :method => :get, class: "bg-purple-500 text-light btn-large mr-1" %>
+               <a href="<%= @next_session.video_call =%>" class="bg-teal-300 text-light btn btn-large"><i class="ml-1 fas fa-video py-1"></i></a>
+              </div>
 
             </div>
-            <div class="u-text-center">
-             <p class="gray-900 headline-4 mb-0">+</p>
-           </div>
-         </div>
+            <div class="mr-4 ml-4">
+              <%= image_tag "profile1.svg", class: "u-pull-right" %>
+            </div>
+          </div>
+        </section>
+  </div>
 
-         <% end %>
+  <div class="col-8">
+
+  </div>
+
+  <div class="col-4 u-flex">
+
+    <div class="bg-teal-100 p-2 u-flex u-flex-column">
+
+          <%= button_to "new study group", new_study_group_path, :method => :get, class: "outline btn-link" %>
 
          <% @study_groups.each do |group| %>
-         <%= link_to study_group_path(group), class: "text-decoration-none" do %>
 
-         <div class="card mr-4 u-justify-center " >
-          <div class="card-head">
-                <p class="card-head-title gray-700"><%= group.name %></p>
-              </div>
-          <div class="content">
-
-           <p class="gray-900 py-1 my-6"> This group has <%= group.sessions.count %> sessions</p>
-
+         <div class="tile u-flex u-flex-column bg-light mb-2 p-1" >
+           <div class="tile__container">
+            <p class="tile__title m-0 u-text-no-wrap"><%= group.name %></p>
+           </div>
+           <p class="tile__subtitle m-0">This group has <%= group.sessions.count %> sessions</p>
+          <div class="tile__buttons m-0">
+            <%= button_to "go to group", study_group_path(group), :method => :get, class: "btn-xsmall btn-link" %>
+             <%= button_to "new session", new_study_group_session_path(group), :method => :get, class: "btn-xsmall btn-link" %>
           </div>
 
         </div>
+        <% end %>
 
-        <% end %>
-        <% end %>
-      </div>
     </div>
-  </section>
+    <h2 class="vertical-rl p-2 u-round bg-teal-100 text-purple-700 self-flex-start"> your study groups
+    </h2>
 
+  </div>
 
 
 
