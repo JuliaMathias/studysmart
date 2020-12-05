@@ -92,6 +92,17 @@
 .ml-half {
   margin-left: 0.25rem !important;
 }
+
+$size: 1.5rem;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+    margin-right: 0.5rem;
+  }
+}
 :root {
   /* v1 Colors */
   --cirrus-fg: #374054;

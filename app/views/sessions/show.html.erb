@@ -127,9 +127,9 @@
 
       <div class="sidebox">
 
-        <h6 class="sidebox__title text-purple-100">Share</h6>
+        <h6 class="sidebox__title text-purple-100 mb-0 pb-1">Share</h6>
         <div class="content text-purple-100">
-          <div class="u-flex u-justify-space-between text-purple-100">
+          <div class="text-purple-100">
             <!-- <a href="#facebook">
             <i class="fab fa-facebook"></i>
             </a>
@@ -156,7 +156,10 @@
               </span>
             </div>
           </div>
-          <%= social_share_button_tag(@session.name, :url => "http://google.com") %>
+          <div class="u-text-center mt-2">
+            <%= social_share_button_tag(@session.name) %>
+          </div>
+
           <!-- <a href="#email" class="share-btn self-center">
             <i class="far fa-envelope"></i>
           </a>
