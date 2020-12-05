@@ -10,12 +10,9 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @study_groups = StudyGroup.where(creator_id: current_user.id)
-
-
-
-    @sessions = Session.where(user_id: current_user.id)
-
+    @study_groups = current_user.study_groups
+    @sessions = current_user.sessions.order(date: :asc)
+    @next_session = current_user.sessions.order(date: :desc).last
   end
 
   def stash

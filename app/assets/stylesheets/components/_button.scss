@@ -23,3 +23,48 @@ div p {
     padding: 0;
 }
 
+
+
+.btn.bg-teal-200 {
+    border-color: #B5E6EB !important;
+
+    &:hover {
+      background-color: #7FCED5 !important;
+      border-color: #7FCED5 !important;
+    }
+  }
+
+ .btn.bg-purple-200 {
+    border-color: #E2D4F8 !important;
+
+    &:hover {
+      background-color: #CBB2F6 !important;
+      border-color: #CBB2F6 !important;
+    }
+  }
+
+.btn.bg-purple-500 {
+    border-color: #9C73ED !important;
+
+    &:hover {
+      background-color: #8256E1 !important;
+      border-color: #8256E1 !important;
+    }
+
+  }
+
+.btn {
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    font-weight: 500;
+
+    &:hover {
+    background-color: #7FCED5;
+    }
+  }
+}
+
+
+

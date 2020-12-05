@@ -1,0 +1,37 @@
+.font-smaller {
+  font-size: 0.7rem;
+
+}
+.btn {
+
+  line-height: 0.9rem;
+}
+
+.btn.btn--pilled {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  }
+
+.text-gray-700 {
+  border-color: #B5E6EB !important;
+}
+
+.vertical-rl { writing-mode: vertical-rl; }
+
+
+.frame .title {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin: 1rem auto 0;
+    line-height: 1.5;
+}
+
+.frame .frame__footer {
+  padding: 0.5rem 1rem;
+}
+
+span {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break:clone;
+}
