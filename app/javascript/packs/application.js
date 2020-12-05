@@ -9,7 +9,8 @@ require("@rails/activestorage").start()
 require("channels")
 require("trix")
 require("@rails/actiontext")
-// require("social-share-button")
+require('packs/social-share-button.js.erb')
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -25,7 +26,8 @@ require("@rails/actiontext")
 // ----------------------------------------------------
 
 // External imports
-import '../plugins/flatpickr'
+// import "bootstrap";
+import "../plugins/flatpickr"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
