@@ -29,25 +29,28 @@
         </section>
   </div>
 
-  <div class="col-8">
+  <div class="col-8 mb-3">
 
   </div>
 
-  <div class="col-4 u-flex">
+  <div class="col-4 u-flex mb-2">
 
     <div class="bg-teal-100 p-2 u-flex u-flex-column">
 
-          <%= button_to "new study group", new_study_group_path, :method => :get, class: "outline btn-link" %>
+          <%= button_to "new study group", new_study_group_path, :method => :get, class: "outline btn-link w-100" %>
 
          <% @study_groups.each do |group| %>
 
-         <div class="tile u-flex u-flex-column bg-light mb-2 p-1" >
-           <div class="tile__container">
-            <p class="tile__title m-0 u-text-no-wrap"><%= group.name %></p>
+         <div class="frame bg-light mb-2">
+
+           <div class="frame__body">
+              <%= link_to study_group_path(group), class: "p-0" do %>
+              <p class="title"><%= group.name.upcase %></p>
+              <% end %>
+              <p class="tile__subtitle m-0">This group has <%= group.sessions.count %> sessions</p>
            </div>
-           <p class="tile__subtitle m-0">This group has <%= group.sessions.count %> sessions</p>
-          <div class="tile__buttons m-0">
-            <%= button_to "go to group", study_group_path(group), :method => :get, class: "btn-xsmall btn-link" %>
+
+          <div class="frame__footer">
              <%= button_to "new session", new_study_group_session_path(group), :method => :get, class: "btn-xsmall btn-link" %>
           </div>
 
