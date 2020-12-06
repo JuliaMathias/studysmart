@@ -1,6 +1,9 @@
+ <!-- hero -->
  <div class="hero fullscreen">
   <div class="hero-body">
     <div class="content">
+
+      <!-- form starts -->
       <%= simple_form_for @study_group, html: { class: "frame p-0"} do |f| %>
       <div class="frame__body p-0">
         <div class="row p-0 level fill-height">
@@ -9,14 +12,28 @@
             <div class="space xlarge"></div>
             <div class="space xlarge"></div>
             <div class="padded">
-              <h3>Update Study Group</h3>
+
+              <!-- title -->
+              <h3>Create Study Group</h3>
+
+              <!-- name -->
               <div class="form-section mt-3">
                 <%= f.label :name %>
                 <div class="input-control">
-                  <%= f.input_field :name, class: 'input-contains-icon' %>
+                  <%= f.input_field :name, class: 'input-contains-icon', placeholder: 'Name' %>
                   <span class="icon"><i class="far fa-wrapper fa-user-circle small"></i></span>
                 </div>
               </div>
+
+              <!-- description -->
+              <div class="form-section mt-3">
+                <%= f.label :description %>
+                <div class="input-control">
+                  <%= f.input_field :description, placeholder: 'What is your group about?' %>
+                </div>
+              </div>
+
+              <!-- options -->
               <div class="form-section form-ext-checkbox mt-2">
                 <%= f.input_field :create_sessions, class: 'form-ext-input' %>
                 <%= f.label :create_sessions, label: 'Allow members to create sessions?', class: 'form-ext-label' %>
@@ -25,6 +42,8 @@
                 <%= f.input_field :edit_session, class: 'form-ext-input' %>
                 <%= f.label :edit_session, label: 'Allow members to edit sessions?', class: 'form-ext-label' %>
               </div>
+
+              <!-- submit -->
               <%= f.button :submit, class: 'btn-primary u-pull-right mt-4 mb-24' %>
             </div>
           </div>
