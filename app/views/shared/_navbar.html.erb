@@ -4,7 +4,7 @@
    <div class="header-brand">
     <div class="nav-item no-hover">
       <%= link_to root_path do %>
-      <%= image_tag("logo-simple.png", alt: "logo") %>
+      <%= image_tag("logo-simple.svg", alt: "logo", id: 'logo') %>
       <% end %>
     </div>
     <div class="nav-item nav-btn" style="cursor: pointer; display: block; position: relative; margin-left: auto;">
@@ -21,7 +21,7 @@
     <div class="nav-item has-sub toggle-hover purple-600" id="dropdown">
       <a class="nav-dropdown-link "><div class="avatar avatar--small" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div></a>
       <% end %>
-      <ul class="dropdown-menu dropdown-animated" role="menu">
+      <ul class="dropdown-menu dropdown-animated u-text-right" role="menu">
        <li role="menu-item"><%= link_to 'profile', profile_path %></li>
        <li role="menu-item"><%= link_to '+ study group', new_study_group_path %></li>
        <li role="menu-item"><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
@@ -35,7 +35,7 @@
    <div class="header-brand">
     <div class="nav-item no-hover">
       <%= link_to root_path do %>
-      <%= image_tag("logo-simple.png", alt: "logo") %>
+      <%= image_tag("logo-simple.svg", alt: "logo", id: 'logo') %>
       <% end %>
     </div>
     <div class="nav-item nav-btn" style="cursor: pointer; display: block; position: relative; margin-left: auto;">
