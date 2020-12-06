@@ -15,27 +15,58 @@
     </section>
   </div>
 
-  <!-- second section // sessions -->
-  <div class="col-sm-8 my-3">
-    <h2>Upcoming Sessions</h2>
+  <!-- second section -->
+  <div class="col-12 my-5">
+    <h2>upcoming sessions</h2>
+
     <div class="row">
-      <% @study_group.sessions.each do |session| %>
-      <div class="col frame bg-teal-400 mr-1 mb-1" style="min-width: 15em;">
-        <%= link_to session_path(session), class: "p-0 text-light" do %>
-        <div class="frame-header">
-          <p class="title px-2 my-3"> <span class="bg-gray-100 text-teal-700 p-1 u-round"><%= session.name.upcase %></span></p>
-        </div>
-        <% end %>
-        <div class="frame__body text-light">
-          <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
-        </div>
-        <div class="frame__footer">
-          <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-teal-300 text-gray-700 btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
+
+      <!-- sessions -->
+      <div class="col-md-9">
+        <div class="row">
+          <% @study_group.sessions.each do |session| %>
+          <div class="col frame bg-teal-400 mr-1 mb-1" style="min-width: 15em;">
+            <%= link_to session_path(session), class: "p-0 text-light" do %>
+            <div class="frame-header">
+              <p class="title px-2 my-3"> <span class="bg-gray-100 text-teal-700 p-1 u-round"><%= session.name.upcase %></span></p>
+            </div>
+            <% end %>
+            <div class="frame__body text-light">
+              <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
+            </div>
+            <div class="frame__footer">
+              <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-teal-300 text-gray-700 btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
+            </div>
+          </div>
+          <% end %>
+      </div>
+    </div>
+
+    <!-- study groups -->
+    <div class="col-md-3 my-3">
+      <h4 class="mb-0"><span class="p-2 u-round bg-purple-100 text-teal-700">members</span> </h4>
+      <div class="bg-purple-100 p-2 u-flex u-flex-column self-flex-start">
+        <% @study_group.users.each do |user| %>
+        <div class="tile tile--center mb-3">
+
+          <div class="tile__icon">
+            <div class="avatar avatar--small" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
+          </div>
+
+          <div class="tile__container">
+            <p class="tile__title m-0"><%= user.first_name %> <%= user.last_name %></p>
+            <% end %>
+          </div>
+
         </div>
       </div>
-      <% end %>
     </div>
+
   </div>
+
+
+
 
 </div>
 
+</div>

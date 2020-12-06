@@ -7,8 +7,7 @@ class StudyGroupsController < ApplicationController
   end
 
   def show
-    @sessions = Session.where(study_group_id: @study_group.id)
-    authorize(@study_group)
+
   end
 
   def new
