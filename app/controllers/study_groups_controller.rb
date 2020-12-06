@@ -48,6 +48,6 @@ class StudyGroupsController < ApplicationController
   end
 
   def study_group_params
-    params.require(:study_group).permit(:name, :create_sessions, :edit_session)
+    params.require(:study_group).permit(:name, :description, :create_sessions, :edit_session)
   end
 end
