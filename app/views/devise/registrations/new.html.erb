@@ -1,41 +1,97 @@
-<div class="grid mt-10">
-  <div class="grid-cs-3 grid-ce-10">
-    <h2>Sign up</h2>
+ <!-- hero -->
+ <div class="hero fullscreen">
+  <div class="hero-body">
+    <div class="content">
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <!-- form starts -->
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "frame p-0"}) do |f| %>
       <%= f.error_notification %>
+      <div class="frame__body p-0">
+        <div class="row p-0 level fill-height">
+          <div class="col-6 p-0 bg"></div>
+          <div class="col-6">
+            <div class="space xlarge"></div>
+            <div class="space large"></div>
+            <div class="padded">
 
-      <div class="form-inputs">
-       <%= f.input :first_name,
+              <!-- title  -->
+              <h3>Sign up</h3>
+
+               <!-- name  -->
+              <div class="row p-0">
+                  <div class="col-6">
+
+                      <div class="input-control">
+                          <%= f.input_field :first_name,
+                                            required: true,
+                                            autofocus: true,
+                                            input_html: { autocomplete: "first name" }, class: 'input-contains-icon', placeholder: 'First name' %>
+                          <span class="icon">
+                              <i class="far fa-wrapper fa-user-circle small"></i>
+                          </span>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="input-control">
+                           <%= f.input_field :last_name,
+                                            required: true,
+                                            autofocus: true,
+                                            input_html: { autocomplete: "last name" }, class: 'input-contains-icon', placeholder: 'Last name' %>
+                          <span class="icon">
+                              <i class="far fa-wrapper fa-user-circle small"></i>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- email  -->
+              <div class="form-section mt-3">
+                <div class="input-control">
+                  <%= f.input_field :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "first name" }%>
-        <%= f.input :last_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "last name" }%>
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-        <%= f.input :password,
+                    input_html: { autocomplete: "email" }, class: 'input-contains-icon', placeholder: 'Email' %>
+                  <span class="icon"><i class="far fa-wrapper fa-envelope-open small"></i></span>
+                </div>
+              </div>
+
+              <!-- password -->
+              <div class="form-section mt-3">
+                <div class="input-control">
+                  <%= f.input_field :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
+                    input_html: { autocomplete: "new-password" }, class: 'input-contains-icon', placeholder: 'New password' %>
+                  <span class="icon"><i class="fas fa-wrapper fa-key small"></i></span>
+                </div>
+              </div>
+
+              <div class="form-section mt-3">
+                <div class="input-control">
+                  <%= f.input_field :password_confirmation,
                     required: true,
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :photo, as: :file %>
+                    input_html: { autocomplete: "new-password" }, class: 'input-contains-icon', placeholder: 'Confirm password' %>
+                  <span class="icon"><i class="fas fa-wrapper fa-key small"></i></span>
+                </div>
+              </div>
 
+              <!-- photo  -->
+              <div class="form-section mt-3">
+                <div class="input-control">
+                  <%= f.input_field :photo, as: :file, class: 'input-contains-icon' %>
+                   <span class="icon"><i class="fa-wrapper far fa-images"></i></span>
+                </div>
+              </div>
+
+              <%= f.button :submit, "Sign up", class: 'btn-primary u-pull-right mt-3 mb-16' %>
+
+
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
-
+      <% end %>
+    </div>
   </div>
 </div>
 
