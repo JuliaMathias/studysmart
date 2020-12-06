@@ -16,7 +16,7 @@
   </div>
 
   <!-- second section -->
-  <div class="col-12 my-5">
+  <div class="col-12 my-6">
     <h2>upcoming sessions</h2>
 
     <div class="row">
@@ -35,26 +35,26 @@
               <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
             </div>
             <div class="frame__footer">
-              <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-teal-300 text-gray-700 btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
+              <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-teal-300 text-teal-700 btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
             </div>
           </div>
           <% end %>
       </div>
     </div>
 
-    <!-- study groups -->
+    <!-- members -->
     <div class="col-md-3 my-3">
-      <h4 class="mb-0"><span class="p-2 u-round bg-purple-100 text-teal-700">members</span> </h4>
-      <div class="bg-purple-100 p-2 u-flex u-flex-column self-flex-start">
+      <h4 class="mb-0"><span class="px-3 py-2 u-round bg-purple-100 text-teal-600">members</span> </h4>
+      <div class="bg-purple-100 px-2 pt-2 pb-5 u-flex u-flex-column">
         <% @study_group.users.each do |user| %>
-        <div class="tile tile--center mb-3">
+        <div class="tile tile--center my-2 pl-1 pr-3">
 
           <div class="tile__icon">
             <div class="avatar avatar--small" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
           </div>
 
           <div class="tile__container">
-            <p class="tile__title m-0"><%= user.first_name %> <%= user.last_name %></p>
+            <p class="tile__title m-0 pt-half"><span class="title"><%= user.first_name %> <%= user.last_name %></span></p>
             <% end %>
           </div>
 
