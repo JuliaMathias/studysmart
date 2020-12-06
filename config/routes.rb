@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get '/stash', to: 'pages#stash'
 
   resources :study_groups do
-    resources :sessions, only: [:new, :create]
+    resources :sessions, only: [:new, :create, :destroy]
   end
-  resources :sessions, only: [:show, :edit, :update] do
+  resources :sessions, only: [:show, :edit, :update, :destroy] do
     resources :attachments, only: [:create]
   end
 end
