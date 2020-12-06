@@ -17,7 +17,11 @@
 
   <!-- second section -->
   <div class="col-12 my-6">
-    <h2>upcoming sessions</h2>
+    <div class="u-flex u-items-center">
+      <h2 class="pr-3">upcoming sessions</h2>
+      <%= link_to "+ session",  new_study_group_session_path(@study_group), class: "btn btn-transparent text-teal-400 btn-small py-1"%>
+    </div>
+
 
     <div class="row">
 
