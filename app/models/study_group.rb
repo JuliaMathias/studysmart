@@ -1,7 +1,9 @@
 class StudyGroup < ApplicationRecord
+  attr_accessor :email
 
-  has_many :sessions
-  has_many :user_study_groups
+  has_many :sessions, dependent: :destroy
+
+  has_many :user_study_groups, dependent: :destroy
   has_many :users, through: :user_study_groups
 
   validates :creator_id, presence: false
