@@ -3,6 +3,45 @@
 }
 
 
+.btn-container {
+
+  .btn{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .bg-teal-200 {
+    border-color: #B5E6EB !important;
+
+    &:hover {
+      background-color: #7FCED5 !important;
+      border-color: #7FCED5 !important;
+    }
+  }
+
+  .bg-purple-200 {
+    border-color: #E2D4F8 !important;
+
+    &:hover {
+      background-color: #CBB2F6 !important;
+      border-color: #CBB2F6 !important;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    font-weight: 500;
+
+
+    &:hover {
+    background-color: #7FCED5;
+    }
+  }
+
+}
+
 
 #sidebar {
   width: 25vw;
@@ -13,7 +52,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 35px 5px;
+  padding: 25px 5px 20px;
 }
 .sidebox .divider {
   margin-top: 1rem;

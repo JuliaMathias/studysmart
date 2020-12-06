@@ -8,6 +8,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "social-share-button";
+@import "flatpickr/dist/flatpickr";
+
 
 // Your CSS paertials
 @import "components/index";
@@ -89,6 +91,30 @@
 
 .ml-half {
   margin-left: 0.25rem !important;
+}
+
+.bg {
+  background: url('window-and-quote.svg');
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding-bottom: 100%;
+}
+
+
+$size: 1.5rem;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+    margin-right: 0.5rem;
+  }
 }
 :root {
   /* v1 Colors */
