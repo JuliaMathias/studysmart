@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show, :edit, :update]
+  before_action :set_session, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   # def index
@@ -37,9 +37,15 @@ class SessionsController < ApplicationController
   end
 
   def update
-    authorize @session
+    authorize(@session)
     @session.update(session_params)
     redirect_to session_path(@session)
+  end
+
+  def destroy
+    authorize(@session)
+    @session.destroy
+    redirect_to root_path
   end
 
   private
