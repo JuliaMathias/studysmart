@@ -1,7 +1,7 @@
 class Session < ApplicationRecord
   belongs_to :study_group
 
-  has_many :attachments
+  has_many :attachments, dependent: :destroy
   has_many_attached :photos
   has_many_attached :pdf
 
