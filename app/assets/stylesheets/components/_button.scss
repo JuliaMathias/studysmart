@@ -19,11 +19,11 @@
 }
 
 .btn-padded {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-  }
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
 
 .btn-container {
 
@@ -101,6 +101,16 @@ div p {
   }
 
 }
+
+
+  input.bg-purple-500 {
+    border-color: #9C73ED !important;
+
+    &:hover {
+      background-color: #8256E1 !important;
+      border-color: #8256E1 !important;
+    }
+  }
 
 
 
