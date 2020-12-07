@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   # def index
   #   @study_groups = policy_scope(StudyGroup).order(created_at: :desc)
   # end
+  BASE_URL = 'http://studysmart.cc'
 
   def show
     authorize(@session)
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
     @videos = Attachment.where(session_id: @session.id, attachment_type: :video)
     @readings = Attachment.where(session_id: @session.id, attachment_type: :reading)
     @quizzes = Attachment.where(session_id: @session.id, attachment_type: :quiz)
-    @url = session_path(@session).to_s
+    @url = BASE_URL + session_path(@session).to_s
     authorize(@attachment)
   end
 

@@ -1,11 +1,19 @@
-<div class="grid mt-16">
-  <div class="grid-cs-2 grid-ce-10">
+<!-- main container -->
+<div class="row w-60 u-center mt-16 u-items-flex-start">
+
+  <!-- first section -->
+  <div class="col-12 bg-teal-100 p-0">
+    <%= image_tag "girl-and-stars.svg", class: "u-pull-right" %>
+      <div class="m-6">
+
+    <!-- group info-->
     <section>
-      <div class="content">
-        <h1 class="headline-4 mb-6"><%= @study_group.name %></h1>
-        <div class="btn bg-teal-200 text-gray-700 w-100 mt-2">
-            <%= link_to 'Update Study Group', edit_study_group_path(@study_group) %>
+        <h1 class="headline-3 pb-2"><%= @study_group.name %></h1>
+        <p class="lead"><%= @study_group.description %></p>
+        <div class="mt-3">
+          <%= link_to "new session",  new_study_group_session_path(@study_group), class: "btn btn-primary py-2 px-3 outline"%>
         </div>
+
         <div class="btn bg-teal-200 text-gray-700 w-100 mt-2">
             <%= link_to study_group_path(@study_group), method: :delete do %>
               <i class="fa fa-trash destroy_study_group"></i>
@@ -16,38 +24,68 @@
           <div class="card mr-4 u-justify-center " >
               <div class="content mb-0">
 
-                  <p class="title mt-2 mb-0">New session</p>
 
-              </div>
-              <div class="u-text-center">
-                 <p class="gray-900 headline-2">+</p>
-              </div>
-          </div>
-
-          <% end %>
-
-          <% @sessions.each do |session| %>
-          <%= link_to session_path(session), class: "text-decoration-none" do %>
-
-            <div class="card mr-4">
-              <div class="card-head">
-                <p class="card-head-title gray-700"><%= session.name %></p>
-              </div>
-              <div class="content">
-                <p class="gray-900 mb-5"><%= session.content.to_plain_text.truncate(140) %></p>
-              </div>
-              <div class="card-footer level content"><%= session.date %></div>
-            </div>
-
-          <% end %>
-          <% end %>
-        </div>
-
-
-        </div>
 
     </section>
+    </div>
   </div>
+
+  <!-- second section -->
+  <div class="col-12 my-6">
+    <div class="u-flex u-items-center">
+      <h2 class="pr-3">upcoming sessions</h2>
+
+    </div>
+
+
+    <div class="row">
+
+      <!-- sessions -->
+      <div class="col-md-9">
+        <div class="row">
+          <% @study_group.sessions.each do |session| %>
+          <div class="col frame bg-teal-400 mr-1 mb-1" style="min-width: 15em;">
+            <%= link_to session_path(session), class: "p-0 text-light" do %>
+            <div class="frame-header">
+              <p class="title px-2 my-3"> <span class="bg-gray-100 text-teal-700 p-1 u-round mt-1"><%= session.name.upcase %></span></p>
+            </div>
+            <% end %>
+            <div class="frame__body text-light">
+              <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
+            </div>
+            <div class="frame__footer">
+              <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-teal-300 text-teal-700 btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
+            </div>
+          </div>
+          <% end %>
+      </div>
+    </div>
+
+    <!-- members -->
+    <div class="col-md-3 my-3">
+      <h4 class="mb-0"><span class="px-3 py-2 u-round bg-purple-100 text-teal-600">members</span> </h4>
+      <div class="bg-purple-100 px-2 pt-2 pb-5 u-flex u-flex-column">
+        <% @study_group.users.each do |user| %>
+        <div class="tile tile--center my-2 pl-1 pr-3">
+
+          <div class="tile__icon">
+            <div class="avatar avatar--small" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
+          </div>
+
+          <div class="tile__container">
+            <p class="tile__title m-0 pt-half"><span class="title"><%= user.first_name %> <%= user.last_name %></span></p>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
 </div>
-</body>
-</html>
+
+</div>

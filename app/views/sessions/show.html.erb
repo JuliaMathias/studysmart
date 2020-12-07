@@ -1,39 +1,47 @@
 <!-- container -->
 <div class="row my-10">
-  <div class="col-9 "> <!-- modal -->
-    <div class="modal" id="attachment-modal">
-      <a href="#" id="closebtn" class="modal-overlay close-btn" aria-label="Close"></a>
-      <div class="modal-content" role="document">
-        <div class="modal-header">
-          <a href="#components" class="u-pull-right" aria-label="Close">
-            <span class="icon">
-              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11 fa-wrapper" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
-                <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
-              </svg>
-            </span>
-          </a>
-          <div class="modal-title">Add attachments</div>
-        </div>
-        <%= simple_form_for([@session, @attachment]) do |f| %>
-        <div class="modal-body">
-          <%= f.input :attachment_type, collection: Attachment.attachment_types.keys %>
-          <%= f.input :name %>
-          <%= f.input :url %>
-        </div>
-        <div class="modal-footer u-text-right">
-          <%= f.button :submit, class: 'btn-link btn-small' %>
-        </div>
-        <% end %>
+  <!-- modal -->
+  <div class="modal" id="attachment-modal">
+    <!-- modal structure -->
+    <a href="#" id="closebtn" class="modal-overlay close-btn" aria-label="Close"></a>
+    <div class="modal-content" role="document">
+      <!-- modal header -->
+      <div class="modal-header">
+        <a href="#components" class="u-pull-right" aria-label="Close">
+          <span class="icon">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11 fa-wrapper" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
+              <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+            </svg>
+          </span>
+        </a>
+        <div class="modal-title">Add attachments</div>
       </div>
+      <!-- modal header end -->
+      <!-- modal form -->
+      <%= simple_form_for([@session, @attachment]) do |f| %>
+      <div class="modal-body">
+        <%= f.input :attachment_type, collection: Attachment.attachment_types.keys %>
+        <%= f.input :name %>
+        <%= f.input :url %>
+      </div>
+      <div class="modal-footer u-text-right">
+        <%= f.button :submit, class: 'btn-primary btn-small py-1 px-2' %>
+      </div>
+      <% end %>
+      <!-- modal form end -->
     </div>
-
+    <!-- modal structure end -->
+  </div>
+  <!-- modal end -->
+  <!-- main content -->
+  <div class="col-9 ">
     <!-- title  -->
     <section class="pt-6">
       <div class="content">
         <h1 class="headline-3"><%= @session.name %></h1>
       </div>
     </section>
-
+    <!-- title end  -->
     <!-- videos -->
     <% unless @videos.empty? %>
     <section class="pt-3">
@@ -47,16 +55,17 @@
       </div>
     </section>
     <% end %>
-
+    <!-- videos end -->
     <!-- content -->
     <section class="pt-6">
       <div class="content">
         <p><%= @session.content %></p>
       </div>
     </section>
-
+    <!-- content end -->
     <!-- images-->
     <% unless @session.photos.empty? %>
+
 
           <section class="pt-3">
             <div class="content">
@@ -67,8 +76,18 @@
             </div>
           </section>
 
-    <% end %>
 
+    <section class="pt-3">
+      <div class="content">
+        <h2>Gallery</h2>
+        <% @session.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+      </div>
+    </section>
+
+    <% end %>
+    <!-- images end -->
     <!-- reading list -->
     <% unless @readings.empty? %>
     <section class="pt-6">
@@ -97,7 +116,7 @@
       </div>
     </section>
     <% end %>
-
+    <!-- reading list end -->
     <!-- quiz -->
     <% unless @quizzes.empty? %>
     <section class="pt-6">
@@ -116,19 +135,20 @@
       </div>
     </section>
     <% end %>
+    <!-- quiz end -->
   </div>
-
-
+  <!-- main content end -->
   <!-- sidebar -->
   <div class="col-3">
-
+    <!-- sidebar flexbox -->
     <div class="u-pull-right u-position-fixed" id="sidebar">
       <div class="space large my-3"></div>
-
+      <!-- sidebox -->
       <div class="sidebox">
-
         <h6 class="sidebox__title text-purple-100 mb-0 pb-1">Share</h6>
+        <!-- sidebox content-->
         <div class="content text-purple-100">
+
 
           <div class="divider"></div>
           <div class="u-flex u-justify-space-between text-purple-100">
@@ -150,27 +170,32 @@
 
           </a> -->
 
+
+          <!-- copy input -->
+
           <div class="form-section">
             <div class="input-control" id="copy">
-
               <input
-              class="input-contains-icon text-purple-100"
-              id="url"
-              name="url"
-              placeholder="<%= @url %>"
-              type="text"
-              value="<%= @url %>"
-              />
-              <span class="icon">
-                <i
+                class="input-contains-icon text-purple-100"
+                id="url"
+                name="url"
+                placeholder="<%= @url %>"
+                type="text"
+                value="<%= @url %>"
+                />
+              <span class="icon icon-hover">
+              <i
                 class="far fa-wrapper far fa-copy"
                 ></i>
               </span>
             </div>
           </div>
+          <!-- copy input end -->
+          <!-- social share buttons -->
           <div class="u-text-center mt-2">
             <%= social_share_button_tag(@session.name) %>
           </div>
+
 
           <!-- <a href="#email" class="share-btn self-center">
 
@@ -200,11 +225,56 @@
         <button class="btn bg-purple-200 text-gray-700 w-100 btn-large" id="modal-opener">Add video<i class="ml-half fab fa-youtube"></i>, readings<i class="mx-half fas fa-book"></i> or a quiz!<i class="ml-half fas fa-check"></i></button>
       </div>
 
+
+          <!-- social share buttons end -->
+        </div>
+        <!-- sidebox content end-->
+      </div>
+      <!-- sidebox end -->
+      <!-- buttons -->
+      <div class="btn-container">
+        <!-- button group -->
+        <div class="u-flex w-100">
+          <!-- update button -->
+          <%= link_to 'edit', edit_session_path(@session), class: 'btn btn-light mr-half w-40 btn-small' %>
+          <!-- update button end -->
+          <!-- destroy button -->
+          <%= link_to 'delete', edit_session_path(@session), class: 'btn btn-light mx-half w-40 btn-small' %>
+          <!-- destroy button end -->
+          <!-- destroy button -->
+          <%= link_to 'back', study_group_path(@session.study_group), class: 'btn btn-light ml-half w-40 btn-small' %>
+          <!-- destroy button end -->
+        </div>
+        <!-- button group end -->
+        <!-- modal button -->
+        <div>
+          <button class="btn bg-purple-200 text-gray-700 w-100 btn-large" id="modal-opener">Add video<i class="ml-half fab fa-youtube"></i>, readings<i class="mx-half fas fa-book"></i> or a quiz!<i class="ml-half fas fa-check"></i></button>
+        </div>
+        <!-- modal button end -->
+        <!-- videocall button -->
+        <% unless @session.video_call.empty? %>
+        <div>
+          <a class="btn d-block bg-teal-200 text-gray-700 w-100 btn-large" href="<%= @session.video_call %>">
+          Join the meeting<i class="ml-1 fas fa-video"></i>
+          </a>
+        </div>
+        <% end %>
+        <!-- videocall button end -->
+      </div>
+      <!-- buttons end -->
+
     </div>
-
+    <!-- sidebar flexbox end -->
   </div>
+
 
 
   </div>
 </div>
 </div>
+
+  <!-- sidebar end -->
+</div>
+<!-- container end -->
+
+
