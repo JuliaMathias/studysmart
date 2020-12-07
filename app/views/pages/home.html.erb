@@ -50,12 +50,13 @@
         </div>
         <div class="col-sm-6 u-flex u-flex-column u-justify-center-end mb-3 u-items-flex-end">
           <h2 class="u-text-right pb-2">Ready to start?</h2>
-          <div class="bg-purple-100 py-4 px-3 w-80">
-            <p class="u-text-right">
-              You can create your study group and invite all your friends! They’ll have easy access to every study session you create for that group.
+          <div class="bg-purple-100 pt-4 pb-2 px-3 w-80 u-text-right">
+            <p class="pb-3">
+              You can create your study group and invite all your friends or students! They’ll have easy access to every study session you create for that group.
             </p>
+            <%= link_to "Create your own study group", new_study_group_path, :method => :get, class: "d-inline-block btn btn-primary outline btn-padded font-light" %>
           </div>
-          <div class="w-80">
+          <!-- <div class="w-80">
             <p class="u-text-center lead mt-2">OR</p>
           </div>
 
@@ -63,14 +64,14 @@
             <p class="u-text-right">
               You can create a single study session, to quickly share with your friends or coworkers!
             </p>
-          </div>
+          </div> -->
         </div>
-        <div class="col-12 mb-3 u-flex u-justify-center">
+        <!-- <div class="col-12 mb-3 u-flex u-justify-center">
           <div class="mt-3 mb-3 u-flex u-justify-space-between w-40 wrap">
-            <%= button_to "Create your own study group", new_study_group_path, :method => :get, class: "btn-link btn-group" %>
-            <%= button_to "Create a session", new_study_group_path, :method => :get, class: "bg-teal-400 text-light btn-group" %>
+
+
           </div>
-        </div>
+        </div> -->
       </div>
       </div>
     </section>
