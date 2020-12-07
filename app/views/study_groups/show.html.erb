@@ -89,29 +89,29 @@
 
         <!-- past sessions title -->
         <div class="u-flex u-items-center">
-          <h2 class="pr-3">upcoming sessions</h2>
+          <h2 class="pr-3">past sessions</h2>
         </div>
         <!-- past sessions title end -->
         <!-- sessions cards -->
         <div class="row">
-          <% @upcoming_sessions.each do |session| %>
+          <% @past_sessions.each do |session| %>
           <!-- card container -->
-          <div class="col frame bg-teal-400 mr-1 mb-1" style="min-width: 15em;">
+          <div class="col frame bg-gray-200 mr-1 mb-1" style="min-width: 15em;">
             <!-- card header -->
-            <%= link_to session_path(session), class: "p-0 text-light" do %>
+            <%= link_to session_path(session), class: "p-0 text-dark" do %>
             <div class="frame-header">
-              <p class="title px-2 my-3"> <span class="bg-gray-100 text-teal-700 p-1 u-round mt-1"><%= session.name.upcase %></span></p>
+              <p class="title px-2 my-3"> <span class="bg-gray-500 text-light p-1 u-round mt-1"><%= session.name.upcase %></span></p>
             </div>
             <% end %>
             <!-- card header end -->
             <!-- card body -->
-            <div class="frame__body text-light">
-              <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
+            <div class="frame__body">
+              <p class="frame__subtitle text-gray-700 m-0"><%= session.content.to_plain_text.truncate(80) %></p>
             </div>
             <!-- card body end -->
             <!-- card footer -->
             <div class="frame__footer">
-              <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-teal-300 text-teal-700 btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
+              <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn btn-plain btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
             </div>
             <!-- card footer end -->
           </div>
