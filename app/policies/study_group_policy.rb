@@ -18,10 +18,10 @@ class StudyGroupPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.creator_id
   end
 
   def destroy?
-    record.user == user
+    record.creator_id
   end
 end

@@ -19,9 +19,17 @@ class StudyGroupsController < ApplicationController
   def create
     @study_group = StudyGroup.create(study_group_params)
     @study_group.creator_id = current_user.id
-    authorize @study_group
+    authorize(@study_group)
     @user_study_group = UserStudyGroup.create(user_id: current_user.id, study_group_id: @study_group.id)
-    @study_group.save && @user_study_group.save ? (redirect_to study_group_path(@study_group)) : (render 'new')
+
+    if @study_group.save && @user_study_group.save
+      @email = params[:email]
+      mail = StudyGroupMailer.with(study_group: @study_group, email: @email).invite
+      mail.deliver_now
+      redirect_to study_group_path(@study_group)
+    else
+      (render 'new')
+    end
   end
 
   def edit
@@ -35,7 +43,7 @@ class StudyGroupsController < ApplicationController
   end
 
   def destroy
-    authorize @study_group
+    authorize(@study_group)
     @study_group.destroy
     redirect_to root_path
   end
@@ -48,6 +56,6 @@ class StudyGroupsController < ApplicationController
   end
 
   def study_group_params
-    params.require(:study_group).permit(:name, :description, :create_sessions, :edit_session)
+    params.require(:study_group).permit(:name, :description, :create_sessions, :edit_session, :email)
   end
 end

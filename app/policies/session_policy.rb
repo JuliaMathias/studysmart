@@ -11,7 +11,6 @@ class SessionPolicy < ApplicationPolicy
 
   def create?
     true
-    # record.study_group.create_sessions
   end
 
   def show?
@@ -19,7 +18,7 @@ class SessionPolicy < ApplicationPolicy
   end
 
   def update?
-    record.study_group.edit_session
+    record.study_group.creator_id
   end
 
   def edit?
@@ -27,6 +26,6 @@ class SessionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.study_group.creator_id
   end
 end
