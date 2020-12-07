@@ -171,7 +171,7 @@
           <%= link_to 'edit', edit_session_path(@session), class: 'btn btn-light mr-half w-40 btn-small' %>
           <!-- update button end -->
           <!-- destroy button -->
-          <%= link_to 'delete', edit_session_path(@session), class: 'btn btn-light mx-half w-40 btn-small' %>
+          <%= link_to 'Destroy',  @session, class: 'btn btn-light mx-half w-40 btn-small',  method: :delete, data: { confirm: 'Are you sure?' } %>
           <!-- destroy button end -->
           <!-- destroy button -->
           <%= link_to 'back', study_group_path(@session.study_group), class: 'btn btn-light ml-half w-40 btn-small' %>
