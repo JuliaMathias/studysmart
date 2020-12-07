@@ -32,7 +32,7 @@
       <!-- sessions -->
       <div class="col-md-9">
         <div class="row">
-          <% @study_group.sessions.each do |session| %>
+          <% @upcoming_sessions.each do |session| %>
           <div class="col frame bg-teal-400 mr-1 mb-1" style="min-width: 15em;">
             <%= link_to session_path(session), class: "p-0 text-light" do %>
             <div class="frame-header">

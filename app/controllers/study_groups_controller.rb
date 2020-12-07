@@ -7,7 +7,7 @@ class StudyGroupsController < ApplicationController
   end
 
   def show
-
+    @upcoming_sessions = @study_group.sessions.select { |session| session.date > Date.today }
   end
 
   def new
