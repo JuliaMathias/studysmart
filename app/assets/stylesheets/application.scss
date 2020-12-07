@@ -93,6 +93,10 @@
   margin-left: 0.25rem !important;
 }
 
+.pt-half {
+  padding-top: 0.25rem !important;
+}
+
 .bg {
   background: url('window-and-quote.svg');
   background-position-x: 0%;
@@ -105,6 +109,9 @@
   padding-bottom: 100%;
 }
 
+.d-inline-block {
+  display: inline-block;
+}
 
 $size: 1.5rem;
 

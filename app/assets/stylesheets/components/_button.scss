@@ -32,7 +32,16 @@ div p {
       background-color: #7FCED5 !important;
       border-color: #7FCED5 !important;
     }
-  }
+}
+
+.btn.bg-teal-300 {
+    border-color: #7FCED5 !important;
+
+    &:hover {
+      background-color: #59BAC3 !important;
+      border-color: #59BAC3 !important;
+    }
+}
 
  .btn.bg-purple-200 {
     border-color: #E2D4F8 !important;
@@ -41,7 +50,7 @@ div p {
       background-color: #CBB2F6 !important;
       border-color: #CBB2F6 !important;
     }
-  }
+}
 
 .btn.bg-purple-500 {
     border-color: #9C73ED !important;

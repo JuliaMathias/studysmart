@@ -7,8 +7,7 @@ class StudyGroupsController < ApplicationController
   end
 
   def show
-    @sessions = Session.where(study_group_id: @study_group.id)
-    authorize(@study_group)
+
   end
 
   def new
@@ -48,6 +47,6 @@ class StudyGroupsController < ApplicationController
   end
 
   def study_group_params
-    params.require(:study_group).permit(:name, :create_sessions, :edit_session)
+    params.require(:study_group).permit(:name, :description, :create_sessions, :edit_session)
   end
 end
