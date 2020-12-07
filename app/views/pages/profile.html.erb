@@ -8,32 +8,45 @@
     <section>
       <h1 class="headline-3">Hi <%= current_user.first_name %>!</h1>
     </section>
+    <!-- name end -->
 
-    <!-- next session purple box -->
+    <!-- next session box -->
     <section class="mt-8 pt-4 bg-purple-100">
+      <!-- flexbox -->
       <div class="u-flex u-items-flex-end u-justify-space-between">
+        <!-- box text content -->
         <div class="mb-5 ml-5 w-60">
+          <!-- box text -->
           <h2 class="text-purple-700 pb-2">Your next session</h2>
           <h6 class="font-light u-pull-right font-smaller btn bg-teal-200 text-gray-700 u-text-left btn--pilled mr-4">on <%= @next_session.date.to_formatted_s(:short) %></h6>
           <h4><%= @next_session.name %></h4>
           <p class="mb-3"><%= @next_session.content.to_plain_text.truncate(280) %></p>
+          <!-- box text end -->
+          <!-- box buttons -->
           <div class="u-flex u-items-center">
             <%= button_to "go to session", session_path(@next_session), :method => :get, class: "bg-purple-500 text-light btn-large mr-1" %>
             <a href="<%= @next_session.video_call =%>" class="bg-teal-300 text-light btn btn-large"><i class="ml-1 fas fa-video py-1"></i></a>
           </div>
+          <!-- box buttons end -->
         </div>
+        <!-- box content end -->
 
         <!-- image -->
         <div class="mr-4 ml-4">
           <%= image_tag "profile1.svg", class: "u-pull-right" %>
         </div>
+        <!-- image end -->
       </div>
+      <!-- flexbox end -->
     </section>
+    <!-- next session box end -->
   </div>
+  <!-- first section end -->
 
   <!-- second section // sessions -->
   <div class="col-sm-8 my-3">
     <h2>Upcoming Sessions</h2>
+    <!-- session cards -->
     <div class="row">
       <% @sessions.each do |session| %>
       <div class="col frame bg-purple-600 mr-1 mb-1" style="min-width: 15em;">
@@ -51,12 +64,17 @@
       </div>
       <% end %>
     </div>
+    <!-- session cards end -->
   </div>
-
+  <!-- second section // sessions end -->
   <!-- third section // study groups -->
   <div class="col-sm-4 u-flex my-3">
+    <!-- flexbox -->
     <div class="bg-teal-100 p-2 u-flex u-flex-column">
+      <!-- new study group button -->
       <%= button_to "new study group", new_study_group_path, :method => :get, class: "outline btn-link w-100" %>
+      <!-- new study group button end -->
+      <!-- study group cards -->
       <% @study_groups.each do |group| %>
       <div class="frame bg-light mb-2">
         <div class="frame__body">
@@ -72,9 +90,14 @@
         </div>
       </div>
       <% end %>
+      <!-- study group cards -->
     </div>
+    <!-- flexbox end -->
+    <!-- study groups title -->
     <h2 class="vertical-rl p-2 u-round bg-teal-100 text-purple-700 self-flex-start"> your study groups
     </h2>
+    <!-- study groups title end -->
   </div>
+  <!-- third section // study groups end -->
 </div>
 
