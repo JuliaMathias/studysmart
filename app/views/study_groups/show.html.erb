@@ -4,77 +4,128 @@
   <!-- first section -->
   <div class="col-12 bg-teal-100 p-0">
     <%= image_tag "girl-and-stars.svg", class: "u-pull-right" %>
-      <div class="m-6">
-
-    <!-- group info-->
-    <section>
+    <div class="m-6">
+      <!-- group info -->
+      <section>
         <h1 class="headline-3 pb-2"><%= @study_group.name %></h1>
         <p class="lead"><%= @study_group.description %></p>
         <div class="mt-3">
           <%= link_to "new session",  new_study_group_session_path(@study_group), class: "btn btn-primary py-2 px-3 outline"%>
         </div>
-
-
-    </section>
+      </section>
+      <!-- group info end -->
     </div>
   </div>
+  <!-- first section end -->
 
   <!-- second section -->
   <div class="col-12 my-6">
+
+    <!-- upcoming sessions title -->
     <div class="u-flex u-items-center">
       <h2 class="pr-3">upcoming sessions</h2>
-
     </div>
+    <!-- upcoming sessions title end -->
 
-
+    <!-- sessions//members row -->
     <div class="row">
 
-      <!-- sessions -->
+      <!-- upcoming sessions -->
       <div class="col-md-9">
+        <!-- sessions cards -->
         <div class="row">
-          <% @study_group.sessions.each do |session| %>
+          <% @upcoming_sessions.each do |session| %>
+          <!-- card container -->
           <div class="col frame bg-teal-400 mr-1 mb-1" style="min-width: 15em;">
+            <!-- card header -->
             <%= link_to session_path(session), class: "p-0 text-light" do %>
             <div class="frame-header">
               <p class="title px-2 my-3"> <span class="bg-gray-100 text-teal-700 p-1 u-round mt-1"><%= session.name.upcase %></span></p>
             </div>
             <% end %>
+            <!-- card header end -->
+            <!-- card body -->
             <div class="frame__body text-light">
               <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
             </div>
+            <!-- card body end -->
+            <!-- card footer -->
             <div class="frame__footer">
               <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-teal-300 text-teal-700 btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
             </div>
+            <!-- card footer end -->
           </div>
+          <!-- card container end -->
           <% end %>
-      </div>
-    </div>
-
-    <!-- members -->
-    <div class="col-md-3 my-3">
-      <h4 class="mb-0"><span class="px-3 py-2 u-round bg-purple-100 text-teal-600">members</span> </h4>
-      <div class="bg-purple-100 px-2 pt-2 pb-5 u-flex u-flex-column">
-        <% @study_group.users.each do |user| %>
-        <div class="tile tile--center my-2 pl-1 pr-3">
-
-          <div class="tile__icon">
-            <div class="avatar avatar--small" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
-          </div>
-
-          <div class="tile__container">
-            <p class="tile__title m-0 pt-half"><span class="title"><%= user.first_name %> <%= user.last_name %></span></p>
-            <% end %>
-          </div>
-
         </div>
+        <!-- sessions cards end -->
       </div>
+      <!-- upcoming sessions end -->
+
+      <!-- members -->
+      <div class="col-md-3 my-3">
+        <!-- members title -->
+        <h4 class="mb-0"><span class="px-3 py-2 u-round bg-purple-100 text-teal-600">members</span> </h4>
+        <!-- members title end -->
+        <!-- members list -->
+        <div class="bg-purple-100 px-2 pt-2 pb-5 u-flex u-flex-column">
+          <% @study_group.users.each do |user| %>
+          <div class="tile tile--center my-2 pl-1 pr-3">
+            <div class="tile__icon">
+              <div class="avatar avatar--small" style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
+            </div>
+            <div class="tile__container">
+              <p class="tile__title m-0 pt-half"><span class="title"><%= user.first_name %> <%= user.last_name %></span></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <!-- members list end -->
+      </div>
+      <!-- members end-->
+
+      <!-- past sessions -->
+      <div class="col-md-9">
+
+        <!-- past sessions title -->
+        <div class="u-flex u-items-center">
+          <h2 class="pr-3">past sessions</h2>
+        </div>
+        <!-- past sessions title end -->
+        <!-- sessions cards -->
+        <div class="row">
+          <% @past_sessions.each do |session| %>
+          <!-- card container -->
+          <div class="col frame bg-gray-200 mr-1 mb-1" style="min-width: 15em;">
+            <!-- card header -->
+            <%= link_to session_path(session), class: "p-0 text-dark" do %>
+            <div class="frame-header">
+              <p class="title px-2 my-3"> <span class="bg-gray-500 text-light p-1 u-round mt-1"><%= session.name.upcase %></span></p>
+            </div>
+            <% end %>
+            <!-- card header end -->
+            <!-- card body -->
+            <div class="frame__body">
+              <p class="frame__subtitle text-gray-700 m-0"><%= session.content.to_plain_text.truncate(80) %></p>
+            </div>
+            <!-- card body end -->
+            <!-- card footer -->
+            <div class="frame__footer">
+              <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn btn-plain btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
+            </div>
+            <!-- card footer end -->
+          </div>
+          <!-- card container end -->
+          <% end %>
+        </div>
+        <!-- sessions cards end -->
+      </div>
+      <!-- past sessions end -->
+
     </div>
-
+    <!-- sessions//members row -->
   </div>
-
-
-
-
+  <!-- second section end -->
 </div>
+<!-- main container end -->
 
-</div>
