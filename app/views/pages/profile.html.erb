@@ -11,6 +11,7 @@
     <!-- name end -->
 
     <!-- next session box -->
+    <% unless @next_session.nil? %>
     <section class="mt-8 pt-4 bg-purple-100">
       <!-- flexbox -->
       <div class="u-flex u-items-flex-end u-justify-space-between">
@@ -39,6 +40,7 @@
       </div>
       <!-- flexbox end -->
     </section>
+    <% end %>
     <!-- next session box end -->
   </div>
   <!-- first section end -->
@@ -48,20 +50,22 @@
     <h2>upcoming sessions</h2>
     <!-- session cards -->
     <div class="row">
-      <% @upcoming_sessions.each do |session| %>
-      <div class="col frame bg-purple-600 mr-1 mb-1" style="min-width: 15em;">
-        <%= link_to session_path(session), class: "p-0 text-light" do %>
-        <div class="frame-header">
-          <p class="title px-2 my-3"> <span class="bg-gray-100 text-purple-700 p-1 u-round"><%= session.name.upcase %></span></p>
+      <% unless @upcoming_sessions.nil? %>
+        <% @upcoming_sessions.each do |session| %>
+        <div class="col frame bg-purple-600 mr-1 mb-1" style="min-width: 15em;">
+          <%= link_to session_path(session), class: "p-0 text-light" do %>
+          <div class="frame-header">
+            <p class="title px-2 my-3"> <span class="bg-gray-100 text-purple-700 p-1 u-round"><%= session.name.upcase %></span></p>
+          </div>
+          <% end %>
+          <div class="frame__body text-light">
+            <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
+          </div>
+          <div class="frame__footer">
+            <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-purple-500 text-light btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
+          </div>
         </div>
         <% end %>
-        <div class="frame__body text-light">
-          <p class="frame__subtitle text-light m-0"><%= session.content.to_plain_text.truncate(80) %></p>
-        </div>
-        <div class="frame__footer">
-          <p class="frame__subtitle m-0 text-light u-text-right mb-2"> <span class="btn bg-purple-500 text-light btn--pilled">on <%= session.date.to_formatted_s(:short) %></span></p>
-        </div>
-      </div>
       <% end %>
     </div>
     <!-- session cards end -->
@@ -75,20 +79,22 @@
       <%= button_to "new study group", new_study_group_path, :method => :get, class: "outline btn-primary w-100" %>
       <!-- new study group button end -->
       <!-- study group cards -->
+      <% unless @study_groups.nil? %>
       <% @study_groups.each do |group| %>
-      <div class="frame bg-light mb-2">
-        <div class="frame__body">
-          <%= link_to study_group_path(group), class: "p-0" do %>
-          <p class="title"><%= group.name.upcase %></p>
-          <% end %>
-          <p class="frame__subtitle m-0"><%= group.description %></p>
+        <div class="frame bg-light mb-2">
+          <div class="frame__body">
+            <%= link_to study_group_path(group), class: "p-0" do %>
+            <p class="title"><%= group.name.upcase %></p>
+            <% end %>
+            <p class="frame__subtitle m-0"><%= group.description %></p>
+          </div>
+          <div class="frame__footer u-inline-flex u-items-center">
+            <%= link_to new_study_group_session_path(group), :method => :get, class: "mr-1" do %><i class="fas fa-plus"></i> session<% end %>
+            <a href="#" class="mr-1"><i class="fas fa-edit"></i></a>
+            <a href="#" class=""><i class="far fa-trash-alt"></i></a>
+          </div>
         </div>
-        <div class="frame__footer u-inline-flex u-items-center">
-          <%= link_to new_study_group_session_path(group), :method => :get, class: "mr-1" do %><i class="fas fa-plus"></i> session<% end %>
-          <a href="#" class="mr-1"><i class="fas fa-edit"></i></a>
-          <a href="#" class=""><i class="far fa-trash-alt"></i></a>
-        </div>
-      </div>
+        <% end %>
       <% end %>
       <!-- study group cards -->
     </div>
