@@ -48,6 +48,13 @@
                     <%= f.input_field :photos, as: :file, input_html: { multiple: true }, class: 'form-group-input', placeholder: 'Create a gallery' %>
                   </div>
 
+                  <div class="form-group col-6 pl-0 pr-2">
+                    <%= f.label :pdf, class: 'form-group-label', label: "PDF's" do %>
+                    <span class="icon"><i class="fa-wrapper far fa-file"></i></span>
+                    <% end %>
+                    <%= f.input_field :pdf,as: :file, class: 'form-group-input', placeholder: 'Session' %>
+                  </div>
+
                   <div class="form-section form-ext-checkbox col-6 pl-0 u-text-right">
                     <%= f.input_field :privacy, class: 'form-ext-input mt-2' %>
                     <%= f.label :privacy, label: 'Make session private?', class: 'form-ext-label mt-2'%>
