@@ -81,7 +81,7 @@
           <%= link_to study_group_path(group), class: "p-0" do %>
           <p class="title"><%= group.name.upcase %></p>
           <% end %>
-          <p class="frame__subtitle m-0">This group has <%= group.sessions.count %> sessions</p>
+          <p class="frame__subtitle m-0"><%= group.description %></p>
         </div>
         <div class="frame__footer u-inline-flex u-items-center">
           <%= link_to new_study_group_session_path(group), :method => :get, class: "mr-1" do %><i class="fas fa-plus"></i> session<% end %>
