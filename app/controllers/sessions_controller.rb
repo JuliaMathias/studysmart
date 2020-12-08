@@ -45,8 +45,9 @@ class SessionsController < ApplicationController
 
   def destroy
     authorize(@session)
+    @study_group = @session.study_group
     @session.destroy
-    redirect_to root_path
+    redirect_to study_group_path(@study_group)
   end
 
   private
