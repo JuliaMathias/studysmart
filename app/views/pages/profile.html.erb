@@ -90,8 +90,8 @@
           </div>
           <div class="frame__footer u-inline-flex u-items-center">
             <%= link_to new_study_group_session_path(group), :method => :get, class: "mr-1" do %><i class="fas fa-plus"></i> session<% end %>
-            <a href="#" class="mr-1"><i class="fas fa-edit"></i></a>
-            <a href="#" class=""><i class="far fa-trash-alt"></i></a>
+            <%= link_to edit_study_group_path(group), :method => :get, class: "mr-1" do %><i class="fas fa-edit"></i> <% end %>
+            <%# <%= link_to destroy_study_group_path(group), :method => :post, class: "mr-1" do <% end %>
           </div>
         </div>
         <% end %>
