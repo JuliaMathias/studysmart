@@ -4,7 +4,7 @@
     <div class="content">
 
       <!-- form starts -->
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "frame p-0"}) do |f| %>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "frame p-0"}) do |f| %>
       <%= f.error_notification %>
       <div class="frame__body p-0">
         <div class="row p-0 level fill-height">
