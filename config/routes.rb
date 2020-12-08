@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :study_groups do
     resources :sessions, only: [:new, :create, :destroy]
   end
+
   resources :sessions, only: [:show, :edit, :update, :destroy] do
     resources :attachments, only: [:create]
   end
