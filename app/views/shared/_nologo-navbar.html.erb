@@ -18,7 +18,7 @@
       <div class="nav-item has-sub toggle-hover purple-600" id="dropdown">
         <a class="nav-dropdown-link ">
         <% if current_user.photo.attached? %>
-          <div class="avatar avatar--small"  style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
+          <div class="avatar"  style="background-image: url('<%= cl_image_path current_user.photo.key %>')"></div>
         </a>
         <% end %>
         <ul class="dropdown-menu dropdown-animated u-text-right" role="menu">
