@@ -45,7 +45,7 @@ class StudyGroupsController < ApplicationController
   def destroy
     authorize(@study_group)
     @study_group.destroy
-    redirect_to root_path
+    redirect_to profile_path
   end
 
   private
