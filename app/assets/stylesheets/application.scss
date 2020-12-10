@@ -17,6 +17,14 @@
 @import "sessions/index";
 @import "study_groups/index";
 
+.flatpickr-current-month{
+  margin-top: -0.3rem !important;
+  padding: 0 !important;
+}
+
+.numInput.cur-year {
+  padding: 0.85rem 0.5rem !important;
+}
 .text-decoration-none {
   text-decoration: none;
 }
