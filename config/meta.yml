@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "studysmart"
+meta_title: "studysmart- studying made easy"
+meta_description: "Beautiful, organized pages with all the material your study group will need. Studying made easy. "
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@studysmart"   # required for Twitter Cards
