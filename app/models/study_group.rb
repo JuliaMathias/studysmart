@@ -1,5 +1,5 @@
 class StudyGroup < ApplicationRecord
-  attr_accessor :email
+  # attr_accessor :email
 
   has_many :sessions, dependent: :destroy
 
