@@ -21,15 +21,7 @@ class StudyGroupsController < ApplicationController
     @study_group.creator_id = current_user.id
     authorize(@study_group)
     @user_study_group = UserStudyGroup.create(user_id: current_user.id, study_group_id: @study_group.id)
-
-    if @study_group.save && @user_study_group.save
-      @email = params[:email]
-      mail = StudyGroupMailer.with(study_group: @study_group, email: @email).invite
-      mail.deliver_now
-      redirect_to study_group_path(@study_group)
-    else
-      (render 'new')
-    end
+    @study_group.save && @user_study_group.save ? (redirect_to study_group_path(@study_group)) : (render 'new')
   end
 
   def edit
