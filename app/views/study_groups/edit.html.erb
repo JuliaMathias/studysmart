@@ -5,102 +5,50 @@
 
       <!-- form starts -->
       <%= simple_form_for @study_group, html: { class: "frame p-0"} do |f| %>
-      <<div class="frame__body p-0">
+      <div class="frame__body p-0">
         <div class="row p-0 level fill-height">
-          <div class="col">
+          <div class="col-6 p-0 bg"></div>
+          <div class="col-6">
             <div class="space xlarge"></div>
-            <!-- padded -->
+            <div class="space xlarge"></div>
             <div class="padded">
 
-              <!-- title and instructions -->
-              <h1 class="u-text-center u-font-alt">Create a new Session</h1>
-              <div class="divider pb-0"></div>
-              <p class="u-text-center">Ready to create your study session? <i class="fas fa-rocket"></i> Here you can put all the material your group members will need to study. Some of these fields are optional so feel free to use only what you need.</p>
-              <div class="divider"></div>
-              <!-- title and instructions end -->
+              <!-- title -->
+              <h3>Create Study Group</h3>
 
               <!-- name -->
               <div class="form-section mt-3">
                 <%= f.label :name %>
                 <div class="input-control">
-                  <%= f.input_field :name, class: 'input-contains-icon', placeholder: 'What will you study today?' %>
-                  <span class="icon"><i class="fa-wrapper fas fa-font"></i></span>
+                  <%= f.input_field :name, class: 'input-contains-icon', placeholder: 'Name' %>
+                  <span class="icon"><i class="far fa-wrapper fa-user-circle small"></i></span>
                 </div>
               </div>
-              <!-- name end -->
+
+              <!-- description -->
+              <div class="form-section mt-3">
+                <%= f.label :description %>
+                <div class="input-control">
+                  <%= f.input_field :description, placeholder: 'What is your group about?' %>
+                </div>
+              </div>
 
               <!-- options -->
-              <div class="form-section section-inline">
-                <div class="section-body row">
-                  <!-- date -->
-                  <div class="form-section col-6 pl-0 mb-4 pr-2">
-                    <%= f.label :date %>
-                    <div class="input-control">
-                      <%= f.input_field :date, as: :string, class: 'input-contains-icon datepicker' %>
-                      <span class="icon"><i class="fa-wrapper far fa-calendar"></i></span>
-                    </div>
-                  </div>
-                  <!-- date end -->
-                  <!-- video call -->
-                  <div class="form-section col-6 pl-0 mb-4 pl-2">
-                    <%= f.label :video_call, 'Virtual Meeting' %>
-                    <div class="input-control">
-                      <%= f.input_field :video_call, class: 'input-contains-icon', placeholder: 'Your zoom or google meets link' %>
-                      <span class="icon"><i class="fa-wrapper fas fa-video"></i></span>
-                    </div>
-                  </div>
-                  <!-- video call end -->
-                  <!-- gallery -->
-                  <div class="form-section col-6 pl-0 mb-4 pr-2">
-                    <%= f.label :photos, 'Add a gallery' %>
-                    <div class="input-control">
-                      <%= f.input_field :photos, as: :file, input_html: { multiple: true }, class: 'input-contains-icon' %>
-                      <span class="icon"><i class="fa-wrapper far fa-images"></i></span>
-                    </div>
-                  </div>
-                  <!-- gallery end -->
-                  <!-- PDFs -->
-                  <div class="form-section col-6 pl-0 mb-4 pl-2">
-                    <%= f.label :pdf, 'Upload PDFs' %>
-                    <div class="input-control">
-                      <%= f.input_field :pdf, as: :file, input_html: { multiple: true }, class: 'input-contains-icon' %>
-                      <span class="icon"><i class="fa-wrapper far fa-file"></i></span>
-                    </div>
-                  </div>
-                </div>
-                <!-- PDFs end-->
+              <div class="form-section form-ext-checkbox mt-2">
+                <%= f.input_field :create_sessions, class: 'form-ext-input' %>
+                <%= f.label :create_sessions, label: 'Allow members to create sessions?', class: 'form-ext-label' %>
               </div>
-              <!-- options end -->
-              <!-- content -->
-              <div class="form-section mt-3">
-                <%= f.rich_text_area :content, class: 'big-textarea', placeholder: 'Describe what your study session will be about, give the participants discussion questions, etc.' %>
+              <div class="form-section form-ext-checkbox">
+                <%= f.input_field :edit_session, class: 'form-ext-input' %>
+                <%= f.label :edit_session, label: 'Allow members to edit sessions?', class: 'form-ext-label' %>
               </div>
-              <!-- content end -->
-              <!-- privacy -->
-                <div class="form-section form-ext-checkbox mt-3 u-text-right">
-                  <%= f.input_field :privacy, class: 'form-ext-input mt-2' %>
-                  <%= f.label :privacy, label: 'Make session private?', class: 'form-ext-label mt-2'%>
-                </div>
-                <!-- privacy end -->
 
-                <!-- instructions -->
-                <div class="divider pb-0"></div>
-                <p class="u-text-center">On the next page look for a button on the right to add videos, recommended readings or quizes to your study session. Happy studying! <i class="far fa-smile-beam"></i></p>
-                <div class="divider pb-0"></div>
-                <!-- instructions end -->
-
-                <!-- submit -->
-                <div class="btn-group u-pull-right mt-1 mb-10">
-                  <%= f.button :submit, class: 'btn-primary' %>
-                </div>
-                <!-- submit end -->
-                <div class="space xlarge"></div>
+              <!-- submit -->
+              <%= f.button :submit, class: 'btn-primary u-pull-right mt-4 mb-24' %>
             </div>
-            <!-- padded end -->
           </div>
         </div>
       </div>
-    </div>
       <% end %>
     </div>
   </div>
