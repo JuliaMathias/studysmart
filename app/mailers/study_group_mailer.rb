@@ -5,12 +5,12 @@ class StudyGroupMailer < ApplicationMailer
   #
   #   en.study_group_mailer.invite.subject
   #
-  # def invite
-  #   @study_group = params[:study_group]
-  #   @email = params[:email]
-  #   mail(
-  #     to:       @email,
-  #     subject:  "Study Group created!"
-  #   )
-  # end
+  def invite
+    @study_group = params[:study_group]
+    @email = params[:email]
+    mail(
+      to:       @email,
+      subject:  "Study Group created!"
+    )
+  end
 end
