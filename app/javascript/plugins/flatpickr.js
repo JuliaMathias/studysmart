@@ -1,6 +1,14 @@
 import flatpickr from "flatpickr";
 
-flatpickr(".datepicker", {
-  altInput: true,
-  enableTime: true,
-});
+const initFlatpickr = () => {
+  const input = document.querySelector(".datepicker");
+  if (input) {
+    flatpickr(".datepicker", {
+      altInput: true,
+      enableTime: true,
+    });
+  }
+}
+
+
+export { initFlatpickr }
