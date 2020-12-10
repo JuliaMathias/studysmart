@@ -44,7 +44,6 @@ gem "image_processing", "~> 1.0"
 
 gem 'social-share-button'
 
-
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
