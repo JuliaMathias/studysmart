@@ -1,13 +1,14 @@
-![$averZ Logo](/app/assets/images/logo-home.png)
+![studysmart Logo](/app/assets/images/logo-home.png)
 
-## A startup that offers discount coupons and donates the affiliate revenue to the user’s choice academic researcher or research field through a Chrome Extension
 
-## A web app that lets you create your own study group and invite your friends to be a part of it. You can then create pages for each study session that have all the information you need for that day including discussion questions, videos, pdfs, and even the virtual meeting link you'll use that day!
+#### A web app that lets you create your own study group and invite your friends to be a part of it. You can then create pages for each study session that have all the information you need for that day including discussion questions, videos, pdfs, and even the virtual meeting link you'll use that day!
 
 ### [studysmart.cc website 🌎](https://www.studysmart.cc)
 
-#### [Demo Video 🎞️]
+### Demo Video 🎞️
 [![Watch the video](/app/assets/images/youtube-preview.png)](https://youtu.be/UJLkiNNwq4c?t=1009)
+
+Watch our Demo!
 
 
 ### Local Installation ⚙️
