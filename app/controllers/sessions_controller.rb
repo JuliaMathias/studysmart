@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.new(session_params)
-    # attach
     authorize(@session)
     @study_group = StudyGroup.find(params[:study_group_id])
     @session.study_group = StudyGroup.find(params[:study_group_id])
@@ -57,10 +56,9 @@ class SessionsController < ApplicationController
     authorize(@session)
   end
 
-  # 1. checar se o usúario incluiu attachments ou não - Oi Júlia =D
 
   def session_params
-    params.require(:session).permit(:date, :name, :content, :video_call, :privacy, photos: [])
+    params.require(:session).permit(:date, :name, :content, :video_call, :privacy, photos: [], pdf: [])
   end
 end
 
