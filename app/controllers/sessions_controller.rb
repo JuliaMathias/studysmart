@@ -2,9 +2,6 @@ class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  # def index
-  #   @study_groups = policy_scope(StudyGroup).order(created_at: :desc)
-  # end
   BASE_URL = 'http://studysmart.cc'
 
   def show
@@ -56,9 +53,7 @@ class SessionsController < ApplicationController
     authorize(@session)
   end
 
-
   def session_params
     params.require(:session).permit(:date, :name, :content, :video_call, :privacy, photos: [], pdf: [])
   end
 end
-
