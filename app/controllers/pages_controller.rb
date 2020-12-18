@@ -1,13 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :stash ]
 
-  def home
-    # if params[:query].present?
-    #   @study_groups = policy_scope(StudyGroup).search(params[:query])
-    # else
-    #   @study_groups = []
-    # end
-  end
+  def home; end
 
   def profile
     @study_groups = current_user.study_groups
@@ -16,7 +10,5 @@ class PagesController < ApplicationController
     @next_session = @upcoming_sessions.first
   end
 
-  def stash
-
-  end
+  def stash; end
 end
