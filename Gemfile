@@ -38,7 +38,7 @@ gem 'font-awesome-sass'
 
 gem 'simple_form'
 
-gem 'cloudinary', '~> 1.16.0'
+gem 'cloudinary', '~> 1.29.0'
 
 gem "image_processing", "~> 1.0"
 
