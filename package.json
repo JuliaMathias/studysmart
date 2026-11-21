@@ -6,7 +6,7 @@
     "@rails/actiontext": "^6.0.3-4",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.3.0",
+    "@rails/webpacker": "5.4.4",
     "cirrus-ui": "^0.6.0",
     "coffee-loader": "^1.0.1",
     "coffeescript": "1.12.7",
